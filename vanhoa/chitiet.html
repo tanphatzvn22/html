@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi tiết đặc sản</title>
+
+  <style>
+    :root{
+      --text:#ffffff;
+      --muted: rgba(255,255,255,.85);
+      --border: rgba(255,255,255,.18);
+      --navbg: rgba(8, 16, 32, .65);
+      --btn: #6aa6ff;
+      --cardbg: rgba(18,26,43,.80);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background-image:url("../amthuc/anhmain1.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .overlay{ min-height:100vh; background: rgba(0,0,0,.35); }
+    .container{ width: min(980px, 92%); margin: 0 auto; }
+
+    .header{
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navbg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+    }
+    .logo{ display:flex; align-items:center; text-decoration:none; }
+    .logo img{
+      height:44px; width:44px;
+      object-fit:contain;
+      border-radius:50%;
+      background:white;
+      padding:4px;
+    }
+    .nav{ display:flex; align-items:center; gap: 16px; }
+    .nav a{
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 15px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .2s;
+    }
+    .nav a:hover{ background: rgba(255,255,255,.10); color:var(--text); }
+
+    .wrap{ padding: 28px 0 60px; }
+
+    .detail{
+      background: var(--cardbg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(0,0,0,.45);
+    }
+
+    .detail-body{ padding: 18px 18px 22px; }
+
+    .detail-title{
+      margin: 0 0 8px;
+      font-size: 32px;
+      text-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .detail-desc{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .detail-content{
+      margin: 0;
+      line-height: 1.8;
+      color: rgba(255,255,255,.92);
+      white-space: pre-line;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 14px 0 14px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .gallery img{
+      width:100%;
+
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display:block;
+    }
+
+    .gallery img.is-last-odd{
+      grid-column: 1 / -1;
+      width:  100%;
+      justify-self: center;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top: 16px;
+      color: var(--btn);
+      font-weight: 700;
+      text-decoration:none;
+    }
+    .back:hover{ text-decoration: underline; }
+
+    @media (max-width: 700px){
+      .detail-title{ font-size: 24px; }
+      .gallery{ grid-template-columns: 1fr; }
+      .gallery img{ height: 220px; }
+      .gallery img.is-last-odd{ grid-column: auto; width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="../index.html"><img src="../logo.png" alt="Đặc sản Vĩnh Long"></a>
+        <nav class="nav">
+          <a href="../index.html">Trang chủ</a>
+          <a href="vanhoa.html#gioithieu">Giới thiệu</a>
+          <a href="vanhoa.html#lienhe">Liên hệ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="container">
+        <div class="detail">
+          <div class="detail-body">
+            <h1 id="title" class="detail-title">...</h1>
+            <p id="desc" class="detail-desc"></p>
+
+            <p id="contentTop" class="detail-content"></p>
+
+            <div id="gallery" class="gallery"></div>
+
+            <p id="contentBottom" class="detail-content"></p>
+
+            <a class="back" href="vanhoa.html#gioithieu">← Quay về danh sách</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DATA = {
+      "lang-ong": {
+        title: "Lễ hội Lăng Ông Trà Ôn",
+        contentTop:
+`Địa điểm: Ấp Mỹ Hòa, Thiện Mỹ, Vĩnh Long.
+
+Lăng Ông Trà Ôn là nơi chôn cất và thờ phụng. Lễ hội Lăng Ông Trà Ôn diễn ra để tri ân công đức của Thống chế Điều bát Nguyễn Văn Tồn. Lăng mộ này cách thị trấn Trà Ôn khoảng 2km nên cũng tiện cho bạn di chuyển. Lễ hội Vĩnh Long này chính là niềm tự hào của người dân Vĩnh Long vì vào năm 1996, nó đã được Bộ Văn hóa - Thông tin công nhận là Di tích văn hóa.`,
+        images: ["langong.jpg", "langong.gif"],
+contentBottom:'Ông Nguyễn Văn Tồn đã có công giúp nhà Nguyễn dẹp loạn ngoại xâm, nội phản và giúp người dân nơi đây khai hoang, thành lập xóm làng. Với những chiến công hiển hách cùng đời sống gắn bó với dân làng như vậy nên ông được nhiều người kính trọng. Khi ông mất, người dân đã lấy ngày giỗ làm Lễ hội Lăng Ông Trà Ôn. Đầu tháng Giêng hằng năm chính là thời điểm diễn ra buổi lễ nên cùng lúc đó đã thu hút không ít bạn bè gần xa đến tham dự. Ngoài dâng lên Ông nén hương tưởng nhớ, bạn còn được chiêm ngưỡng phong cảnh tuyệt mỹ xung quanh. Để buổi lễ được trọn vẹn thì bạn nên tham gia các hoạt động văn hóa nghệ thuật dân gian hấp dẫn diễn ra tại đó.',
+      },
+
+      "le-cung-mieu": {
+        title: "Lễ cúng Miễu",
+        contentTop:
+`Lễ cúng Miễu Vĩnh Long mang ý nghĩa thể hiện sự tri ân đối với thế hệ đi trước và còn là nét đẹp trong đời sống tâm linh, tín ngưỡng. Đây cũng là dịp để người dân cũng như các tín đồ tôn giáo gần xa đến đây cùng chung vui, giải trí và thắt chặt tính cộng đồng. Lễ cúng Miễu được chia thành 3 loại: Lễ cúng miễu Ông, Lễ cúng miếu Bà và Lễ cúng miếu Cô Hồn. Lễ cúng miễu Ông được tổ chức khá cầu kỳ và trang trọng với các nghi thức tế lễ đoan trang như: Thỉnh tro, Lễ Tiền Vãng, cúng Tiền Yết, lễ Chánh Cúng... Lễ cúng miếu Bà thì được thực hiện tại nhiều địa điểm khác nhau như miếu thờ Ngũ Hành Nương Nương, Thất Thánh Nương Nương, Thiên Hậu Thánh Mẫu,… `,
+        images: ["lecungmieu.jpg","lecungmieu1.jpg"],
+        contentBottom:
+        'Khi diễn ra bất kỳ nghi lễ nào cũng đều có dàn nhạc đi kèm và một số phần đặc biệt còn có múa bóng rỗi. Lễ cúng cô hồn sẽ diễn ra vào ngày 15 -16/1 tháng 1, 10 và 7 âm lịch hằng năm. Vào thời gian đó, các sư cùng người dân tụng kinh và cầu siêu cho các vong hồn lưu lạc. Nét độc đáo mà bạn không thể bỏ qua khi tham gia lễ hội Vĩnh Long này chính là chương trình nghệ thuật. Nhờ vào hình thức diễn xướng nên đã thu hút người dân địa phương và bạn bè gần xa trên khắp mọi nơi đến tham dự tạo nên bầu không khí sôi nổi.'
+      },
+
+      "cu-lao-an-binh": {
+        title: "Cù lao An Bình Vĩnh Long",
+        desc: "Dẻo thơm, dùng làm gỏi cuốn hoặc nem rán.",
+        contentTop:
+`Không chỉ nổi tiếng bởi những vườn trái cây chuẩn miệt vườn miền Tây mà còn nổi danh với nhiều địa điểm du lịch văn hóa tinh thần nổi bật. Ở cù lao An Bình có nhiều địa điểm du lịch nổi tiếng như: Chùa Tiên Châu, Nhà cổ Cai Cường, Nhà sàn ông Mười Đầy, Vườn trái cây 6 Tấn,... tha hồ cho bạn tham quan.`,
+        images: ["culaoanbinh.jpg","culaoanbinh1.jpg"],
+      },
+      "ca-loc-nuong-chui":{
+      title:"Cá lóc nướng chui",
+      images:["calocnuongchui1.png","calocnuongchui2.png"],
+      contentTop:
+      'Trong số các trải nghiệm ở Vĩnh Long mà nhiều bạn trẻ đã chia sẻ, tự tay bắt và thưởng thức món cá lóc nướng trui là điều tuyệt vời nhất. Chỉ khi bắt cá lóc sinh sống tự nhiên ở đồng ruộng, kênh rạch thì thịt mới thật sự chắc khỏe. Như vậy, chỉ khi cá lóc được nướng mới thật sự đúng chuẩn hương vị. Khi nướng, các bạn chỉ cần dùng thanh tre xiên qua thân cá lóc theo chiều dọc rồi để lên than nóng để nướng. Tương tự như cá tai tượng, các bạn nên ăn cá lóc nướng trui khi cuộn với rau, bún, nước chấm. Hương vị ngọt, chắc của thịt cá cộng với mùi khét thoang thoảng khí nướng ban đầu chắc chắn sẽ khiến bạn mê mẩn món ăn này. '
+    }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    const item = DATA[id];
+
+    if (!item) {
+      location.href = "vanhoa.html#gioithieu";
+    } else {
+      document.title = item.title + " - Đặc sản Vĩnh Long";
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("desc").textContent = item.desc;
+
+      document.getElementById("contentTop").textContent = item.contentTop || "";
+      document.getElementById("contentBottom").textContent = item.contentBottom || "";
+
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = "";
+
+      const imgs = item.images || [];
+      if (imgs.length === 0) {
+        gallery.style.display = "none";
+      } else {
+        gallery.style.display = "grid";
+
+        imgs.forEach((src, i) => {
+          const im = document.createElement("img");
+          im.src = src;
+          im.alt = `${item.title} (${i + 1})`;
+
+          if (imgs.length % 2 === 1 && i === imgs.length - 1) {
+            im.classList.add("is-last-odd");
+          }
+
+          gallery.appendChild(im);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
