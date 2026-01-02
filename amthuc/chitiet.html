@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi tiết đặc sản</title>
+
+  <style>
+    :root{
+      --text:#ffffff;
+      --muted: rgba(255,255,255,.85);
+      --border: rgba(255,255,255,.18);
+      --navbg: rgba(8, 16, 32, .65);
+      --btn: #6aa6ff;
+      --cardbg: rgba(18,26,43,.80);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background-image:url("anhmain1.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .overlay{ min-height:100vh; background: rgba(0,0,0,.35); }
+    .container{ width: min(980px, 92%); margin: 0 auto; }
+
+    .header{
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navbg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+    }
+    .logo{ display:flex; align-items:center; text-decoration:none; }
+    .logo img{
+      height:44px; width:44px;
+      object-fit:contain;
+      border-radius:50%;
+      background:white;
+      padding:4px;
+    }
+    .nav{ display:flex; align-items:center; gap: 16px; }
+    .nav a{
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 15px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .2s;
+    }
+    .nav a:hover{ background: rgba(255,255,255,.10); color:var(--text); }
+
+    .wrap{ padding: 28px 0 60px; }
+
+    .detail{
+      background: var(--cardbg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(0,0,0,.45);
+    }
+
+    .detail-body{ padding: 18px 18px 22px; }
+
+    .detail-title{
+      margin: 0 0 8px;
+      font-size: 32px;
+      text-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .detail-desc{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .detail-content{
+      margin: 0;
+      line-height: 1.8;
+      color: rgba(255,255,255,.92);
+      white-space: pre-line;
+    }
+
+    
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 14px 0 14px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);  
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .gallery img{
+      width:100%;
+
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display:block;
+    }
+
+    
+    .gallery img.is-last-odd{
+      grid-column: 1 / -1;
+      width:  100%;
+      justify-self: center;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top: 16px;
+      color: var(--btn);
+      font-weight: 700;
+      text-decoration:none;
+    }
+    .back:hover{ text-decoration: underline; }
+
+    @media (max-width: 700px){
+      .detail-title{ font-size: 24px; }
+      .gallery{ grid-template-columns: 1fr; }
+      .gallery img{ height: 220px; }
+      .gallery img.is-last-odd{ grid-column: auto; width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="../index.html"><img src="../logo.png" alt="Trang chủ"></a>
+        <nav class="nav">
+          <a href="../index.html">Trang chủ</a>
+          <a href="amthuc.html#gioithieu">Giới thiệu</a>
+          <a href="amthuc.html#lienhe">Liên hệ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="container">
+        <div class="detail">
+          <div class="detail-body">
+            <h1 id="title" class="detail-title">...</h1>
+            <p id="desc" class="detail-desc"></p>
+
+            
+            <p id="contentTop" class="detail-content"></p>
+
+            
+            <div id="gallery" class="gallery"></div>
+
+            
+            <p id="contentBottom" class="detail-content"></p>
+
+            <a class="back" href="amthuc.html#gioithieu">← Quay về danh sách</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DATA = {
+      "buoi-nam-roi": {
+        title: "Bưởi Năm Roi",
+        contentTop:
+`Đặc sản Vĩnh Long đầu tiên là bưởi Năm Roi. Đây là loại bưởi có hình dáng độc đáo, vỏ xanh mượt, với quả có dạng giống như quả lê. Đường kính quả thường khoảng 20 cm, bề mặt vỏ mỏng và nổi lên những hạt nhỏ li ti, tạo cảm giác nhám đều quanh vỏ. Khi bổ ra, bưởi có phần thịt mọng nước, giòn và thanh mát. Đặc biệt, sự kết hợp giữa vị ngọt và chua khiến bưởi Năm Roi trở thành món trái cây lý tưởng để thưởng thức vào những ngày hè oi ả.`,
+        images: ["buoi1.jpg", "buoi2.png"],
+        contentBottom:
+`Được thu hoạch vào các tháng Tám và Chạp âm lịch, bưởi Năm Roi mang lại cho du khách trải nghiệm thú vị khi thưởng thức trực tiếp tại vườn. Vị giòn ngọt đặc trưng của loại bưởi này làm cho nó trở nên khác biệt và khó có loại bưởi nào khác có thể sánh được. Đây chắc chắn là một món quà tuyệt vời từ thiên nhiên mà bất kỳ ai ghé thăm Vĩnh Long cũng không nên bỏ lỡ.`
+      },
+
+      "chuot-dong-nuong": {
+        title: "Chuột đồng nướng",
+        contentTop:
+`Chuột đồng nướng là đặc sản Vĩnh Long nức tiếng, dù không phải ai cũng dám thử. Chuột đồng tại đây được chọn lọc từ những con chuột béo tốt, săn chắc nhờ nguồn thức ăn phong phú từ đồng lúa. Sau khi làm sạch, chuột được nướng chín vàng, thơm ngon. Món ăn này có thể khiến nhiều du khách bất ngờ nhưng lại là một phần không thể thiếu của văn hóa ẩm thực địa phương.`,
+        images: ["chuotdongnuong1.jpg","chuotdongnuong2.png"],
+      },
+
+      "sau-rieng": {
+        title: "Bánh tráng",
+        desc: "Dẻo thơm, dùng làm gỏi cuốn hoặc nem rán.",
+        contentTop:
+`Vĩnh Long còn là quê hương của giống sầu riêng Ri6 nổi tiếng với cơm vàng, hạt lép, vị ngọt đậm và hương thơm đặc trưng. Đây là loại sầu riêng được trồng phổ biến tại Vĩnh Long, luôn nằm trong top những loại trái cây được ưa chuộng nhất. Nếu có dịp ghé thăm Vĩnh Long, du khách không nên bỏ lỡ cơ hội thưởng thức loại sầu riêng nổi tiếng này. Hương vị đặc trưng và sự thơm ngon của sầu riêng Ri6 chắc chắn sẽ để lại ấn tượng sâu sắc trong lòng thực khách`,
+        images: ["saurieng1.png","saurieng2.png"],
+      },
+      "ca-loc-nuong-chui":{
+      title:"Cá lóc nướng chui",
+      images:["calocnuongchui1.png","calocnuongchui2.png"],
+      contentTop:
+      'Trong số các trải nghiệm ở Vĩnh Long mà nhiều bạn trẻ đã chia sẻ, tự tay bắt và thưởng thức món cá lóc nướng trui là điều tuyệt vời nhất. Chỉ khi bắt cá lóc sinh sống tự nhiên ở đồng ruộng, kênh rạch thì thịt mới thật sự chắc khỏe. Như vậy, chỉ khi cá lóc được nướng mới thật sự đúng chuẩn hương vị. Khi nướng, các bạn chỉ cần dùng thanh tre xiên qua thân cá lóc theo chiều dọc rồi để lên than nóng để nướng. Tương tự như cá tai tượng, các bạn nên ăn cá lóc nướng trui khi cuộn với rau, bún, nước chấm. Hương vị ngọt, chắc của thịt cá cộng với mùi khét thoang thoảng khí nướng ban đầu chắc chắn sẽ khiến bạn mê mẩn món ăn này. '
+    }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    const item = DATA[id];
+
+    if (!item) {
+      location.href = "amthuc.html#gioithieu";
+    } else {
+      document.title = item.title + " - Đặc sản Vĩnh Long";
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("desc").textContent = item.desc;
+
+      document.getElementById("contentTop").textContent = item.contentTop || "";
+      document.getElementById("contentBottom").textContent = item.contentBottom || "";
+
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = "";
+
+      const imgs = item.images || [];
+      if (imgs.length === 0) {
+        gallery.style.display = "none";
+      } else {
+        gallery.style.display = "grid";
+
+        imgs.forEach((src, i) => {
+          const im = document.createElement("img");
+          im.src = src;
+          im.alt = `${item.title} (${i + 1})`;
+
+          if (imgs.length % 2 === 1 && i === imgs.length - 1) {
+            im.classList.add("is-last-odd");
+          }
+
+          gallery.appendChild(im);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
