@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Đặc sản Vĩnh Long</title>
+<link rel="icon" type="image/png" href="../logo.png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    .typing-text{
+      font-size: 3.1rem;
+      font-weight: 700;
+      min-width: 280px;
+    }
+
+    .typing-text span{
+      position: relative;
+    }
+
+    .typing-text span::before{
+      content: "món ngon miền Tây";
+      color: var(--accent2);
+      animation: words 16s infinite;
+    }
+
+
+    @keyframes cursor{
+      to{ border-left: 3px solid var(--accent2); }
+    }
+
+    @keyframes words{
+      0%, 24%  { content: "món ngon miền Tây"; }
+      25%, 49% { content: "đặc sản Vĩnh Long"; }
+      50%, 74% { content: "ẩm thực sông nước"; }
+      75%, 100%{ content: "trái cây miệt vườn"; }
+    }
+
+.hot-video-row{
+  display: grid;
+  grid-template-columns: 0.9fr 1.6fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.hot-video-row > *{ min-width: 0; }
+
+#hot .slider{
+  max-width: 520px;
+}
+
+.video-wrap{
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+@media (min-width: 901px){
+  .video-wrap{
+    position: sticky;
+    top: 90px;
+  }
+}
+
+@media (max-width: 900px){
+  .hot-video-row{ grid-template-columns: 1fr; }
+  #video{ order: 1; }
+  #hot{ order: 2; }
+  #hot .slider{ max-width: 100%; }
+  .video-wrap{ position: static; }
+}
+
+    @media (max-width: 900px){
+      .hot-video-row{
+        grid-template-columns: 1fr;
+      }
+      .video-wrap{
+        position: static;
+      }
+    }
+      
+.hot-video-row{
+  display: grid;
+  grid-template-columns: 0.9fr 1.6fr 0.65fr;
+  gap: 24px;
+  align-items: start;
+}
+.hot-video-row > *{ min-width: 0; }
+
+#ad{
+  width: 100%;
+}
+.ad-wrap{
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 14px;
+}
+
+.ad-title{
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.ad-item{
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease;
+}
+.ad-item:hover{ transform: translateY(-2px); }
+
+.ad-item img{
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.ad-item h4{
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+.ad-item p{
+  margin: 0;
+  font-size: .9rem;
+  opacity: .85;
+}
+
+@media (min-width: 901px){
+  .ad-wrap{
+    position: sticky;
+    top: 90px;
+  }
+}
+
+@media (max-width: 900px){
+  .hot-video-row{ grid-template-columns: 1fr; }
+  #video{ order: 1; }
+  #hot{ order: 2; }
+  #ad{ order: 3; }
+  .ad-wrap{ position: static; }
+}
+
+  </style>
+</head>
+
+<body style="--bg-image: url('amthuc/anhmain1.jpg');">
+  <div class="page-overlay">
+
+    <header>
+      <a class="logo" href="../index.html">
+        <img src="logo.png" alt="Đặc sản Vĩnh Long">
+        Vĩnh Long
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Mở menu">☰</button>
+
+      <nav id="navMenu">
+        <a href="../index.html">Trang chủ</a>
+        <a href="../dulich/dulich.html">Du lịch</a>
+
+        <a href="#dacsan" class="active">Đặc sản</a>
+          <a href="../vanhoa/vanhoa.html">Văn hoá</a>
+        <a href="#video">HOT/Video</a>
+        <a class="btn" href="#lienhe">Liên hệ</a>
+      </nav>
+    </header>
+
+    <section class="home" id="gioithieu">
+      <div class="home-img">
+        <img src="buoi1.jpg" alt="Đặc sản Vĩnh Long">
+      </div>
+
+      <div class="home-content">
+        <h1>Chào mừng đến <span>Vĩnh Long</span></h1>
+        <h3 class="typing-text">Khám phá <span></span></h3>
+        <p>
+          Một vài món ngon Vĩnh Long bạn có thể tìm hiểu thêm. Bên dưới có danh sách HOT và đặc sản nổi bật.
+          Bấm “Xem thêm” để đọc chi tiết.
+        </p>
+
+        <a class="btn" href="#dacsan"><i class="fa-solid fa-list"></i> Xem danh sách</a>
+        <a class="btn secondary" href="#hot" style="margin-left:10px;"><i class="fa-solid fa-fire"></i> Xem HOT</a>
+      </div>
+    </section>
+
+    <section class="section hot-video-row">
+
+      <div id="hot">
+        <h2 class="title">HOT</h2>
+        <p class="muted">Một vài món ngon Vĩnh Long bạn có thể tìm hiểu thêm.</p>
+
+        <div class="slider" style="position:relative;">
+          <button class="slider-btn left" type="button" aria-label="Trượt trái"></button>
+
+          <div class="slider-track" style="
+            display:grid;
+            grid-auto-flow:column;
+            grid-auto-columns:100%;
+            gap:0;
+            overflow:hidden;
+            padding:0;
+            scroll-snap-type:x mandatory;
+          ">
+
+            <article class="card" style="scroll-snap-align:start;">
+              <img src="buoi1.jpg" alt="Bưởi Năm Roi">
+              <div class="card-body">
+                <h3>Bưởi Năm Roi</h3>
+                <p>Mùi thơm đậm đà, đặc trưng mang nhiều chất dinh dưỡng thiết yếu cho cơ thể người</p>
+                <a class="card-link" href="chitiet.html?id=buoi-nam-roi">Xem thêm →</a>
+              </div>
+            </article>
+
+            <article class="card" style="scroll-snap-align:start;">
+              <img src="chuotdongnuong1.jpg" alt="Chuột đồng nướng">
+              <div class="card-body">
+                <h3>Chuột đồng nướng</h3>
+                <p>Thịt chuột dai, thơm, thấm đều vị béo của chao, một chút cay của sa tế và mùi thơm của than kích thích vị giác</p>
+                <a class="card-link" href="chitiet.html?id=chuot-dong-nuong">Xem thêm →</a>
+              </div>
+            </article>
+
+            <article class="card" style="scroll-snap-align:start;">
+              <img src="saurieng1.png" alt="Sầu riêng">
+              <div class="card-body">
+                <h3>Sầu riêng</h3>
+                <p>Được mệnh danh ở một số vùng là "vua của các loại trái cây"</p>
+                <a class="card-link" href="chitiet.html?id=sau-rieng">Xem thêm →</a>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="slider-dots" aria-label="Chuyển slide"></div>
+
+          <button class="slider-btn right" type="button" aria-label="Trượt phải"></button>
+        </div>
+      </div>
+
+      <div id="video">
+        <h2 class="title">Video</h2>
+        <p class="muted">Xem video giới thiệu.</p>
+
+        <div class="video-wrap">
+<div style="position:relative; width:100%; height:0px; padding-bottom:56.250%"><iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/dzm2b7?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+        </div>
+      </div>
+        <div id="ad">
+  <h2 class="title">Quảng cáo</h2>
+  <p class="muted">Ưu đãi & gợi ý cho bạn.</p>
+
+  <div class="ad-wrap">
+    <div class="ad-title">Ưu đãi hôm nay</div>
+
+    <a class="ad-item" target="blank" href="https://chieutour.com.vn/chuong-trinh-tour/chum-tour-mien-tay-gia-re/tour-du-lich-mien-tay-vinh-long-1-ngay.html">
+      <img src="../qc1.webp" alt="Combo du lịch">
+      <div>
+        <h4>
+TOUR DU LỊCH MIỀN TÂY VĨNH LONG 1 NGÀY</h4>
+        <p>Xem tour & bản đồ chi tiết →</p>
+      </div>
+    </a>
+
+    <div style="height:10px"></div>
+
+    <a class="ad-item" target="blank" href="https://vuatraicaysi.com/vua-trai-cay-vinh-long.html">
+      <img src="../qc2.png" alt="Đặt đặc sản">
+      <div>
+        <h4>Đặt đặc sản giao tận nơi</h4>
+        <p>Liên hệ đặt hàng nhanh →</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+    </section>
+
+    <section class="section" id="dacsan">
+      <h2 class="title">Đặc sản nổi bật</h2>
+      <p class="muted">Một vài món ngon Vĩnh Long bạn có thể tìm hiểu thêm.</p>
+
+      <div class="grid">
+        <article class="card">
+          <img src="buoi1.jpg" alt="Bưởi Năm Roi">
+          <div class="card-body">
+            <h3>Bưởi Năm Roi</h3>
+              <a class="detail-content1" target="blank" href="https://vi.wikipedia.org/wiki/B%C6%B0%E1%BB%9Fi_N%C4%83m_Roi">Nguồn</a>
+            <p>Mùi thơm đậm đà, đặc trưng mang nhiều chất dinh dưỡng thiết yếu cho cơ thể người</p>
+            <a class="card-link" href="chitiet.html?id=buoi-nam-roi">Xem thêm →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="chuotdongnuong1.jpg" alt="Chuột đồng nướng">
+          <div class="card-body">
+            <h3>Chuột đồng nướng</h3>
+              <a class="detail-content1" target="blank" href="https://vnexpress.net/chuot-dong-nuong-mon-ngon-dam-chat-mien-tay-4534689.html">Nguồn</a>
+            <p>Thịt chuột dai, thơm, thấm đều vị béo của chao, một chút cay của sa tế và mùi thơm của than kích thích vị giác</p>
+            <a class="card-link" href="chitiet.html?id=chuot-dong-nuong">Xem thêm →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="saurieng1.png" alt="Sầu riêng">
+          <div class="card-body">
+            <h3>Sầu riêng</h3>
+              <a class="detail-content1" target="blank" href="https://vi.wikipedia.org/wiki/S%E1%BA%A7u_ri%C3%AAng">Nguồn</a>
+            <p>Được mệnh danh ở một số vùng là "vua của các loại trái cây"</p>
+            <a class="card-link" href="chitiet.html?id=sau-rieng">Xem thêm →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="calocnuongchui1.png" alt="Cá lóc nướng chui">
+          <div class="card-body">
+            <h3>Cá lóc nướng chui</h3>
+              <a class="detail-content1" target="blank" href="https://vi.wikipedia.org/wiki/C%C3%A1_l%C3%B3c_n%C6%B0%E1%BB%9Bng_trui">Nguồn</a>
+            <p>Gắn liền với quá trình khai hóa đất phương Nam của dân tộc Việt.</p>
+            <a class="card-link" href="chitiet.html?id=ca-loc-nuong-chui">Xem thêm →</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="banhtet3nhan.webp" alt="Bánh tét ba nhân">
+          <div class="card-body">
+            <h3>Bánh tét ba nhân</h3>
+              <a class="detail-content1" target="blank" href="https://danviet.vn/chiec-banh-tet-ba-nhan-doc-dao-o-vinh-long-7777541412-d354641.html">Nguồn</a>
+            <p>Mùi thơm dẹo quẹo của nếp chín, vị béo bùi của đậu xanh cà và vị ngọt lịm của chuối xiêm chín đậm đà</p>
+            <a class="card-link" href="chitiet.html?id=banh-tet-3-nhan">Xem thêm →</a>
+          </div>
+        </article>
+                <article class="card">
+          <img src="thanhtra.jpeg" alt="Trái Thanh Trà">
+          <div class="card-body">
+            <h3>Trái Thanh Trà</h3>
+              <a class="detail-content1" target="blank" href="https://mia.vn/cam-nang-du-lich/doc-dao-mua-thanh-tra-vinh-long-o-xu-binh-minh-9640">Nguồn</a>
+            <p>Không chỉ nổi bật về màu sắc, mùi thơm mà hương vị của loại trái cây này còn khiến nhiều người phải mê mẩn</p>
+            <a class="card-link" href="chitiet.html?id=trai-thanh-tra">Xem thêm →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="lienhe">
+      <h2 class="title">Liên hệ</h2>
+      <p class="muted">Thông tin liên hệ.</p>
+
+      <div class="detail">
+        <div class="detail-body">
+          <p class="detail-content">
+Tan Phát 12.1 – Trường THCS-THPT Thanh Bình
+SĐT: 0788842156
+Email: tanphatvo657@gmail.com
+
+Huỳnh Long 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0944024022
+Email: huynhlongvlm1902@gmail.com
+
+Nhật Hào 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0939665263
+Email: huynhnhathao@gmail.com
+
+Trí Đức 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0789567504
+Email: letriduc150408@gmail.com
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function(){
+        const btn = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+        if(!btn || !menu) return;
+
+        btn.addEventListener('click', ()=>{
+          menu.classList.toggle('open');
+          btn.textContent = menu.classList.contains('open') ? '✕' : '☰';
+        });
+
+        menu.querySelectorAll('a').forEach(a=>{
+          a.addEventListener('click', ()=>{
+            if(menu.classList.contains('open')){
+              menu.classList.remove('open');
+              btn.textContent = '☰';
+            }
+          });
+        });
+
+        document.addEventListener('click', (e)=>{
+          if(window.matchMedia('(max-width: 900px)').matches){
+            const isInside = menu.contains(e.target) || btn.contains(e.target);
+            if(!isInside && menu.classList.contains('open')){
+              menu.classList.remove('open');
+              btn.textContent = '☰';
+            }
+          }
+        });
+      })();
+
+      document.querySelectorAll('.slider').forEach(slider=>{
+        const track = slider.querySelector('.slider-track');
+        const left  = slider.querySelector('.slider-btn.left');
+        const right = slider.querySelector('.slider-btn.right');
+        const dotsWrap = slider.querySelector('.slider-dots');
+        if(!track || !left || !right || !dotsWrap) return;
+
+        const cards = Array.from(track.querySelectorAll('.card'));
+        if(cards.length === 0) return;
+
+        const gap = (() => {
+          const cs = getComputedStyle(track);
+          const g = cs.gap || cs.columnGap || "16px";
+          const n = parseFloat(g);
+          return Number.isFinite(n) ? n : 16;
+        })();
+
+        const step = () => {
+          const card = cards[0];
+          const w = card ? card.getBoundingClientRect().width : 280;
+          return w + gap;
+        };
+
+        const getIndex = () => {
+          const s = step();
+          if(s <= 0) return 0;
+          return Math.round(track.scrollLeft / s);
+        };
+
+        function setActiveDot(i){
+          dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+        }
+
+        function goTo(i, smooth = true){
+          const idx = (i + cards.length) % cards.length;
+          track.scrollTo({ left: idx * step(), behavior: smooth ? 'smooth' : 'auto' });
+          setActiveDot(idx);
+        }
+
+        dotsWrap.innerHTML = "";
+        const dots = cards.map((_, i) => {
+          const b = document.createElement('button');
+          b.type = "button";
+          b.setAttribute('aria-label', `Slide ${i+1}`);
+          b.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(b);
+          return b;
+        });
+
+        setActiveDot(getIndex());
+
+        left.addEventListener('click', () => goTo(getIndex() - 1));
+        right.addEventListener('click', () => goTo(getIndex() + 1));
+
+        let raf = 0;
+        track.addEventListener('scroll', ()=>{
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(()=>{
+            const idx = Math.min(cards.length - 1, Math.max(0, getIndex()));
+            setActiveDot(idx);
+          });
+        });
+
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(reduceMotion) return;
+
+        let timer = null;
+        const INTERVAL = 3000;
+
+        function stop(){
+          if(timer){ clearInterval(timer); timer = null; }
+        }
+
+        function start(){
+          stop();
+          timer = setInterval(()=>{
+            const next = getIndex() + 1;
+            if(next >= cards.length) goTo(0);
+            else goTo(next);
+          }, INTERVAL);
+        }
+
+        slider.addEventListener('mouseenter', stop);
+        slider.addEventListener('mouseleave', start);
+        slider.addEventListener('touchstart', stop, {passive:true});
+        slider.addEventListener('touchend', start);
+        slider.addEventListener('pointerdown', stop);
+        slider.addEventListener('pointerup', start);
+        slider.addEventListener('pointercancel', start);
+
+        window.addEventListener('resize', ()=> setActiveDot(getIndex()));
+
+        start();
+      });
+
+      function renderViews(){
+        document.querySelectorAll('.view-badge').forEach(b=>{
+          const id = b.dataset.viewId;
+          const count = Number(localStorage.getItem('views_' + id) || 0);
+          b.textContent = '👁 ' + count;
+        });
+      }
+      renderViews();
+
+      document.querySelectorAll('a.go-detail').forEach(a=>{
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          const id = this.dataset.id;
+          if(id){
+            const key = 'views_' + id;
+            const current = Number(localStorage.getItem(key) || 0);
+            localStorage.setItem(key, String(current + 1));
+            renderViews();
+          }
+          window.location.href = this.href;
+        });
+      });
+    </script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi tiết đặc sản</title>
+    <link rel="icon" type="image/png" href="../logo.png" sizes="32x32">
+      <link rel="stylesheet" href="../style.css" />
+  <style>
+    :root{
+      --text:#ffffff;
+      --muted: rgba(255,255,255,.85);
+      --border: rgba(255,255,255,.18);
+      --navbg: rgba(8, 16, 32, .65);
+      --btn: #6aa6ff;
+      --cardbg: rgba(18,26,43,.80);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background-image:url("anhmain1.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .overlay{ min-height:100vh; background: rgba(0,0,0,.35); }
+    .container{ width: min(980px, 92%); margin: 0 auto; }
+
+    .header{
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navbg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+    }
+    .logo{ display:flex; align-items:center; text-decoration:none; }
+    .logo img{
+      height:44px; width:44px;
+      object-fit:contain;
+      border-radius:50%;
+      background:white;
+      padding:4px;
+    }
+    .nav{ display:flex; align-items:center; gap: 16px; }
+    .nav a{
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 15px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .2s;
+    }
+    .nav a:hover{ background: rgba(255,255,255,.10); color:var(--text); }
+
+    .wrap{ padding: 28px 0 60px; }
+
+    .detail{
+      background: var(--cardbg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(0,0,0,.45);
+    }
+
+    .detail-body{ padding: 18px 18px 22px; }
+
+    .detail-title{
+      margin: 0 0 8px;
+      font-size: 32px;
+      text-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .detail-desc{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .detail-content{
+      margin: 0;
+      line-height: 1.8;
+      color: rgba(255,255,255,.92);
+      white-space: pre-line;
+    }
+
+    
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 14px 0 14px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);  
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .gallery img{
+      width:100%;
+
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display:block;
+    }
+
+    
+    .gallery img.is-last-odd{
+      grid-column: 1 / -1;
+      width:  100%;
+      justify-self: center;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top: 16px;
+      color: var(--btn);
+      font-weight: 700;
+      text-decoration:none;
+    }
+    .back:hover{ text-decoration: underline; }
+
+    @media (max-width: 700px){
+      .detail-title{ font-size: 24px; }
+      .gallery{ grid-template-columns: 1fr; }
+      .gallery img{ height: 220px; }
+      .gallery img.is-last-odd{ grid-column: auto; width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="../index.html"><img src="../logo.png" alt="Trang chủ"></a>
+        <nav class="nav">
+          <a href="../index.html">Trang chủ</a>
+          <a href="amthuc.html#gioithieu">Giới thiệu</a>
+          <a href="amthuc.html#lienhe">Liên hệ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="container">
+        <div class="detail">
+          <div class="detail-body">
+            <h1 id="title" class="detail-title">...</h1>
+            <p id="desc" class="detail-desc"></p>
+
+            
+            <p id="contentTop" class="detail-content"></p>
+
+            
+            <div id="gallery" class="gallery"></div>
+
+            
+            <p id="contentBottom" class="detail-content"></p>
+
+            <a class="back" href="amthuc.html#gioithieu">← Quay về danh sách</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DATA = {
+      "buoi-nam-roi": {
+        title: "Bưởi Năm Roi",
+        contentTop:
+`Đặc sản Vĩnh Long đầu tiên là bưởi Năm Roi. Đây là loại bưởi có hình dáng độc đáo, vỏ xanh mượt, với quả có dạng giống như quả lê. Đường kính quả thường khoảng 20 cm, bề mặt vỏ mỏng và nổi lên những hạt nhỏ li ti, tạo cảm giác nhám đều quanh vỏ. Khi bổ ra, bưởi có phần thịt mọng nước, giòn và thanh mát. Đặc biệt, sự kết hợp giữa vị ngọt và chua khiến bưởi Năm Roi trở thành món trái cây lý tưởng để thưởng thức vào những ngày hè oi ả.`,
+        images: ["buoi1.jpg", "buoi2.png"],
+        contentBottom:
+`Được thu hoạch vào các tháng Tám và Chạp âm lịch, bưởi Năm Roi mang lại cho du khách trải nghiệm thú vị khi thưởng thức trực tiếp tại vườn. Vị giòn ngọt đặc trưng của loại bưởi này làm cho nó trở nên khác biệt và khó có loại bưởi nào khác có thể sánh được. Đây chắc chắn là một món quà tuyệt vời từ thiên nhiên mà bất kỳ ai ghé thăm Vĩnh Long cũng không nên bỏ lỡ.`
+      },
+
+      "chuot-dong-nuong": {
+        title: "Chuột đồng nướng",
+        contentTop:
+`Chuột đồng nướng là đặc sản Vĩnh Long nức tiếng, dù không phải ai cũng dám thử. Chuột đồng tại đây được chọn lọc từ những con chuột béo tốt, săn chắc nhờ nguồn thức ăn phong phú từ đồng lúa. Sau khi làm sạch, chuột được nướng chín vàng, thơm ngon. Món ăn này có thể khiến nhiều du khách bất ngờ nhưng lại là một phần không thể thiếu của văn hóa ẩm thực địa phương.`,
+        images: ["chuotdongnuong1.jpg","chuotdongnuong2.png"],
+        contentBottom:'Sau khi bắt chuột, người miền Tây làm sạch theo nhiều cách, phổ biến là hun khói hoặc trụng qua nước sôi để làm sạch rồi rửa với muối, rượu, để ráo. Chuột đồng sau khi làm sạch được chế biến thành nhiều món ngon như quay lu, nướng muối ớt, khìa nước dừa, xào sả ớt, giả cầy, chiên giòn, xào lăn... Song, nếu thích vị béo thơm, người miền Tây sẽ đem chuột nướng với chao.\n' +
+                '\n' +
+                'Chuột sẽ được ướp cùng tiêu, sả, ớt, đường, bột ngọt, sa tế, chút ngũ vị hương... cho ngấm đều gia vị. Sau khoảng 30 phút hoặc một giờ thì chuột đem nướng trên bếp than, chao tán nhuyễn, trộn ít mỡ heo, phết đều lên trên và nướng đến khi chín vàng thơm đều các mặt. Món này có thể ăn kèm các loại rau thơm, xà lách và chấm cùng muối ớt chanh.\n' +
+                '\n' +
+                'Thịt chuột dai, thơm, thấm đều vị béo của chao, một chút cay của sa tế và mùi thơm của than kích thích vị giác. Nhiều thực khách chưa quen, lần đầu thưởng thức món ăn này sẽ có cảm giác e ngại. Nhưng nếu vượt qua "ác cảm" về chuột, món ăn có thể trở thành "khoái khẩu". "Lúc đầu, tôi cảm thấy e ngại khi nhìn những chú chuột nướng nướng chao nằm trên đĩa và không dám ăn. Song, thời gian sau, chính hương vị của đặc sản đồng quê này đã khiến tôi mê mẩn", anh Ngọc Thành, Cần Thơ, chia sẻ.\n' +
+                '\n' +
+                'Hiện ở miền Tây, món ngon từ chuột đồng có mặt trong thực đơn tại một số nhà hàng, điểm du lịch, quán nhậu và là món yêu thích của nhiều thực khách.'
+      },
+
+      "sau-rieng": {
+        title: "Bánh tráng",
+        contentTop:
+`Vĩnh Long còn là quê hương của giống sầu riêng Ri6 nổi tiếng với cơm vàng, hạt lép, vị ngọt đậm và hương thơm đặc trưng. Đây là loại sầu riêng được trồng phổ biến tại Vĩnh Long, luôn nằm trong top những loại trái cây được ưa chuộng nhất. Nếu có dịp ghé thăm Vĩnh Long, du khách không nên bỏ lỡ cơ hội thưởng thức loại sầu riêng nổi tiếng này. Hương vị đặc trưng và sự thơm ngon của sầu riêng Ri6 chắc chắn sẽ để lại ấn tượng sâu sắc trong lòng thực khách`,
+        images: ["saurieng1.png","saurieng2.png"],
+        contentBottom:'Một số người cho rằng sầu riêng có mùi thơm ngọt ngào dễ chịu, trong khi số khác lại cho rằng mùi hương quá nồng và khó chịu. Mùi này gợi lên những phản ứng từ cảm kích sâu sắc đến ghê tởm mãnh liệt. Mùi khó ngửi dai dẳng của quả, có thể kéo dài vài ngày, đã khiến một số khách sạn và dịch vụ giao thông công cộng ở Đông Nam Á cấm loại trái cây này. Thịt có thể được tiêu thụ ở nhiều giai đoạn chín khác nhau và được dùng để tạo hương vị cho nhiều món tráng miệng mặn và ngọt trong ẩm thực Đông Nam Á. Hạt cũng có thể ăn được khi nấu chín.'
+      },
+      "ca-loc-nuong-chui":{
+      title:"Cá lóc nướng chui",
+      images:["calocnuongchui1.png","calocnuongchui2.png"],
+      contentTop:
+      'Cá lóc nướng trui là một món ăn dân dã đặc trưng cho miền đồng nước Nam Bộ Việt Nam, với hương vị độc đáo và cách chế biến rất đơn giản. Món ăn này gắn liền với quá trình khai hóa đất phương Nam của dân tộc Việt.'
+        ,
+        contentBottom:'Đặc điểm của món cá lóc nướng trui dân dã là cá không cần sơ chế, nghĩa là không đánh vảy, không cạo nhớt, không mổ bụng, không tẩm ướp gia vị. Cá lóc vừa bắt dưới sông lên, rửa sạch, được xiên bằng một que dài từ miệng đến đuôi, sau vùi cá vào đống rơm khô rồi châm lửa đốt hoặc cắm que xuống đất lấy rơm phủ lên và đốt lửa cho đến khi tro tàn. Khi cá chín, cạo bỏ lớp vẩy đã cháy xém để lộ ra thịt cá trắng và thơm.'
+    },
+           "banh-tet-3-nhan":{
+      title:"Bánh tét ba nhân",
+      images:["banhtet3nhan.webp","banhtet3nhan1.webp"],
+      contentTop:
+      'Để có được đòn bánh tét ba nhân độc đáo ấy, người dân quê tôi chọn loại nếp ngon và dẻo, các công đoạn như vo nếp, gút nước, để ráo vẫn làm bình thường tuy nhiên khi xào nếp thì người ta cho thêm nước cốt dừa pha mỡ hành. Đậu xanh cà ngâm nở mềm, đãi sạch vỏ. Mỡ heo cắt từng sợi vuông dài theo chiều dài đòn bánh sẽ gói. Người ta chọn chuối xiêm vừa chín tới, lột bỏ vỏ, cắt đôi bề dọc, ướp muối đường cho thấm. Lá chuối thì cẩn thận xé từng miếng vừa gói, phải lau dầu cho bóng và trơn, để khi bánh chín nếp không dính vào lá. Trải nếp lên mặt lá chuối rồi đặt một nửa trái chuối xiêm, sau đó trải lớp đậu xanh, tiếp theo đặt sợi mỡ heo. Sau cùng gói gọn chiếc bánh thành một đòn dài, cột lại bằng dây lát hoặc dây ni lông. Bánh tét ba nhân cũng được nấu như các loại bánh tét khác.',
+           contentBottom:'Sáng 30 cúng rước ông bà, họ cắt bánh thành từng khoanh rồi đặt vào đĩa để cúng. Bánh cúng xong thì con cháu mới được ăn. Khi ăn, ta cảm nhận được hương vị đậm đà, khó quên, không lẫn với các loại bánh tét khác do sự hòa quyện của ba nhân: mùi thơm dẹo quẹo của nếp chín, vị béo bùi của đậu xanh cà và vị ngọt lịm của chuối xiêm chín đậm đà.'},
+      "trai-thanh-tra":{
+      title:"Trái Thanh Trà",
+      images:["thanhtra.jpeg","thanhtra1.jpg"],
+      contentTop:
+      'Có thể nói rằng sau bưởi năm roi, thanh trà Vĩnh Long là loại quả hiếm hoi đem lại năng suất cao và nguồn thu nhập ổn định cho người nông dân ở thị xã Bình Minh. Dường như mẹ thiên nhiên đã ưu ái dành tặng cho bà con nơi đây loại trái cây đặc biệt mà những địa phương khác trên cả nước không nơi nào may mắn trồng được với diện tích lên đến 100 hecta. Men theo cung đường Quốc lộ 1A và Quốc lộ 54 trên địa bàn tỉnh, bạn chắc chắn sẽ nhìn thấy rất nhiều địa điểm bán thanh trà Vĩnh Long trông rất bắt mắt và cực kỳ đông đúc. Trong những năm trở lại đây, thanh trà Vĩnh Long không chỉ còn là loại trái cây quen thuộc của miền Tây sông nước mà đã vang danh đến mọi miền Tổ quốc. Chính vì lẽ đó mà ngày càng có nhiều bạn trẻ thập phương tìm đến xứ Bình Minh để trải nghiệm loại quả trứ danh này. ',
+        contentBottom:'Theo lời kể của người dân trong vùng, đã có một vài địa phương khác thử trồng loại cây thanh trà Vĩnh Long này. Tuy nhiên, do không phù hợp thổ nhưỡng nên lúc thu hoạch thì trái thanh trà Vĩnh Long không được tròn, vỏ không căng mọng và vị cũng chua hơn nhiều so với khi trồng tại thị xã Bình Minh. Trái thanh trà trông giống hệt như quả xoài thu nhỏ, kích thước chỉ bằng quả trứng gà và nằm gọn trong lòng bàn tay. Khi còn non, loại trái đặc sản Vĩnh Long này khoác lên mình một  lớp vỏ màu xanh mướt, đến lúc chín thì dần chuyển sang màu vàng óng ánh và căng bóng. Thanh trà Vĩnh Long tuy là loại hoa quả dân dã nơi miền Tây sông nước nhưng lại mang trong mình một nét quyến rũ, kiêu sa lạ kỳ bởi hương thơm thoang thoảng không thể nhầm lẫn. Cùng với đó là vị ngọt thanh đặc trưng xen lẫn với một chút chua chua, cực kỳ thích hợp để giải nhiệt trong những ngày mùa hè nắng nóng. Được biết, trái thanh trà Vĩnh Long chứa rất nhiều vitamin, khoáng chất và các chất chống oxy hóa vô cùng có lợi cho tim mạch. Đặc biệt, hàm lượng kali và magie trong loại quả này rất cao, góp phần hỗ trợ cho việc giảm thiểu các chứng bệnh về huyết áp. Ngoài ra, theo một số nghiên cứu thì trái thanh trà Vĩnh Long còn có tác dụng ngăn ngừa bệnh ung thư rất hiệu quả.'
+    }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    const item = DATA[id];
+
+    if (!item) {
+      location.href = "amthuc.html#gioithieu";
+    } else {
+      document.title = item.title + " - Đặc sản Vĩnh Long";
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("desc").textContent = item.desc;
+
+      document.getElementById("contentTop").textContent = item.contentTop || "";
+      document.getElementById("contentBottom").textContent = item.contentBottom || "";
+
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = "";
+
+      const imgs = item.images || [];
+      if (imgs.length === 0) {
+        gallery.style.display = "none";
+      } else {
+        gallery.style.display = "grid";
+
+        imgs.forEach((src, i) => {
+          const im = document.createElement("img");
+          im.src = src;
+          im.alt = `${item.title} (${i + 1})`;
+
+          if (imgs.length % 2 === 1 && i === imgs.length - 1) {
+            im.classList.add("is-last-odd");
+          }
+
+          gallery.appendChild(im);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
