@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="logo.png" sizes="32x32">
+
+  <title>Giới Thiệu về Vĩnh Long</title>
+    <style>
+        .typing-text{
+  font-size: 3.1rem;
+  font-weight: 700;
+  min-width: 280px;
+}
+
+.typing-text span{
+  position: relative;
+}
+
+.typing-text span::before{
+  content: "Món ngon miền Tây";
+  color: var(--accent2);
+  animation: words 16s infinite;
+}
+
+
+
+@keyframes cursor{
+  to{ border-left: 3px solid var(--accent2); }
+}
+
+@keyframes words{
+  0%, 24%  { content: "về Vĩnh Long"; }
+  25%, 49% { content: "Du lịch Vĩnh Long"; }
+  50%, 74% { content: "Văn hoá Vĩnh Long"; }
+  75%, 100%{ content: "Đặc sản Vĩnh Long"; }
+}
+    </style>
+</head>
+
+<body style="--bg-image: url('amthuc/anhmain1.jpg');">
+  <div class="page-overlay">
+
+    <header>
+      <a href="index.html" class="logo">
+        <img src="amthuc/logo.png" alt="Logo">
+        Vĩnh Long
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Mở menu">☰</button>
+
+      <nav id="navMenu">
+        <a href="index.html" class="active">Trang chủ</a>
+        <a href="#gioithieu">Giới Thiệu</a>
+          <a href="dulich/dulich.html">Du lịch</a>
+          <a href="amthuc/amthuc.html">Đặc sản</a>
+          <a href="vanhoa/vanhoa.html">Văn hoá</a>
+        <a href="#video">Video</a>
+        <a href="#contact" class="btn">Liên hệ</a>
+      </nav>
+    </header>
+
+    <section class="home" id="top">
+      <div class="home-img">
+        <img src="logo1.jpg" alt="Đặc sản Vĩnh Long">
+      </div>
+
+      <div class="home-content">
+        <h1 class="hero-title">Vĩnh Long <span>- sông nước hiền hòa</span></h1>
+        <h3 class="typing-text">Khám phá <span></span></h3>
+        <p>
+          Vĩnh Long là một tỉnh thuộc vùng Đồng bằng sông Cửu Long, nổi bật với vẻ đẹp hiền hòa của sông nước và miệt vườn. Nơi đây hấp dẫn bởi nhiều đặc sản dân dã và trái cây nổi tiếng, đồng thời có du lịch trải nghiệm gần gũi như tham quan vườn trái cây, đi thuyền, khám phá đời sống địa phương. Bên cạnh đó, văn hoá Vĩnh Long mang đậm nét Nam Bộ: chân tình, mộc mạc, giàu truyền thống và bản sắc miền sông nước.
+        </p>
+
+        <a href="dulich/dulich.html" class="btn"><i class="fa-solid fa-bowl-food"></i> Vào trang Du lịch</a>
+          <a href="amthuc/amthuc.html" class="btn"><i class="fa-solid fa-bowl-food"></i> Vào trang Đặc sản</a>
+          <a href="vanhoa/vanhoa.html" class="btn"><i class="fa-solid fa-bowl-food"></i> Vào trang Văn hoá</a>
+        <a href="#video" class="btn secondary" style="margin-left:10px;"><i class="fa-solid fa-play"></i> Xem video</a>
+      </div>
+    </section>
+<section id="gioithieu">
+  <h2 class="title">Giới Thiệu</h2>
+  <p class="detail-content" >Vĩnh Long là tỉnh nằm ở khu vực trung tâm Đồng bằng sông Cửu Long; cách thành phố Hồ Chí Minh 136 km về phía Đông Bắc và thành phố Cần Thơ 40 km về phía Nam; Phía Bắc và Đông Bắc giáp tỉnh Tiền Giang và Bến Tre; Phía Đông Nam giáp tỉnh Trà Vinh; Phía Tây Nam giáp giáp tỉnh Hậu Giang và thành phố Cần Thơ; Phía Tây Bắc giáp tỉnh Đồng Tháp. Vĩnh Long có diện tích tự nhiên 1.479,128 km2 bằng 0,4% diện tích cả nước, dân số năm 2010 là 1.031.994 người, bằng 1,3% dân số cả nước.Đơn vị hành chính tỉnh Vĩnh Long có 6 huyện gồm: Long Hồ, Mang Thít, Vũng Liêm, Tam Bình, Trà Ôn, Bình Tân; 1 thị xã Bình Minh và 1 thành phố Vĩnh Long.
+    Tính đến ngày 1 tháng 4 năm 2019, Toàn tỉnh Vĩnh Long có 11 tôn giáo khác nhau chiếm 262.280 người, nhiều nhất là Phật giáo có 77.660 người, Phật giáo Hòa Hảo có 66.269 người, Công giáo có 66.220 người, đạo Cao Đài có 46.226 người,[33] các tôn giáo khác như Tin Lành có 3.641 người, Tịnh độ cư sĩ Phật hội Việt Nam có 1.842 người, Đạo Tứ Ân Hiếu Nghĩa có 327 người, Hồi giáo 56 người, Minh Sư Đạo có 22 người, Bửu Sơn Kỳ Hương có 16 người, còn lại là đạo Bà-la-môn chỉ có một người.[32]
+    Do địa thế và lịch sử hình thành, từ ba dân tộc Kinh, Khmer, Hoa cùng sinh sống lâu đời ở đây đã hòa quyện và tạo nên một nền văn hóa đặc trưng cho vùng đất này. Vĩnh Long có khá nhiều loại hình văn học dân gian như: nói thơ Vân Tiên, nói tuồng, nói vè, hát Huê Tình, cải lương... Vĩnh Long cũng là nơi có nhiều di tích lịch sử văn hóa như: thành Long Hồ, Công Thần Miếu Vĩnh Long, đình Tân Giai, đình Tân Hoa, Văn Thánh Miếu Vĩnh Long, Khu tưởng niệm cố Chủ tịch Hội đồng Bộ trưởng Phạm Hùng.
+  Về con người, người Vĩnh Long nổi tiếng với tính cách hiền hòa, chân chất, nghĩa tình và mến khách. Trong cuộc sống thường ngày, họ gắn bó mật thiết với sông nước, ruộng vườn, luôn cần cù lao động và sẵn sàng giúp đỡ nhau lúc khó khăn. Sự giản dị, thật thà cùng lối sống chan hòa đã tạo nên nét đẹp rất riêng của con người Vĩnh Long, khiến du khách khi đến đây luôn cảm thấy gần gũi và ấm áp.
+
+Về du lịch, Vĩnh Long phát triển mạnh loại hình du lịch sinh thái và du lịch trải nghiệm văn hóa miệt vườn. Cù lao An Bình là điểm đến tiêu biểu, nơi du khách có thể tham quan vườn trái cây, chèo xuồng trên kênh rạch, ở homestay và thưởng thức ẩm thực dân dã. Ngoài ra, Vĩnh Long còn thu hút du khách bởi các làng nghề truyền thống, chợ quê, di tích lịch sử và không gian sông nước yên bình, mang đến những trải nghiệm chân thực về đời sống miền Tây Nam Bộ</p>
+<p class="detail-content">Nguồn</p><a class="detail-content1" href="https://vi.wikipedia.org/wiki/V%C4%A9nh_Long"><u><i>https://vi.wikipedia.org/wiki/V%C4%A9nh_Long</i></u></a>
+</section>
+    <section class="section" id="video">
+      <div class="video-wrap">
+<div style="position:relative; width:100%; height:0px; padding-bottom:56.250%"><iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/4pt2zn?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+</div>
+    </section>
+
+    <section class="section" id="contact">
+
+      <h2 class="title">Liên hệ</h2>
+      <p class="muted">Bạn có thể đặt món / hỏi thêm thông tin qua các kênh bên dưới.</p>
+
+      <div class="detail">
+        <div class="detail-body">
+          <p class="detail-content">
+Tan Phát 12.1 – Trường THCS-THPT Thanh Bình
+SĐT: 0788842156
+Email: tanphatvo657@gmail.com
+
+Huỳnh Long 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0944024022
+Email: huynhlongvlm1902@gmail.com
+
+Nhật Hào 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0939665263
+Email: huynhnhathao@gmail.com
+
+Trí Đức 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0789567504
+Email: letriduc150408@gmail.com
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function(){
+        const btn = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+        if(!btn || !menu) return;
+
+        btn.addEventListener('click', ()=>{
+          menu.classList.toggle('open');
+          btn.textContent = menu.classList.contains('open') ? '✕' : '☰';
+        });
+
+        document.addEventListener('click', (e)=>{
+          if(window.matchMedia('(max-width: 900px)').matches){
+            const isInside = menu.contains(e.target) || btn.contains(e.target);
+            if(!isInside && menu.classList.contains('open')){
+              menu.classList.remove('open');
+              btn.textContent = '☰';
+            }
+          }
+        });
+      })();
+    </script>
+
+  </div>
+</body>
+</html>
