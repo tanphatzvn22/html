@@ -142,15 +142,20 @@
 
 <body>
   <div class="overlay">
-    <header class="header">
-      <div class="container header-inner">
-        <a class="logo" href="../index.html"><img src="../logo.png" alt="Trang chủ"></a>
-        <nav class="nav">
-          <a href="../index.html">Trang chủ</a>
-          <a href="amthuc.html#gioithieu">Giới thiệu</a>
-          <a href="amthuc.html#lienhe">Liên hệ</a>
-        </nav>
-      </div>
+<header>
+      <a class="logo" href="../index.html" aria-label="Vĩnh Long - Trang chủ">
+        <img src="../logo.png" alt="Logo Vĩnh Long" />
+        <span>Vĩnh Long</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Mở menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav aria-label="Điều hướng">
+        <a href="../index.html">Trang chủ</a>
+        <a href="amthuc.html">Đặc sản</a>
+        <a href="../index.html#contact" class="btn">Liên hệ</a>
+      </nav>
     </header>
 
     <main class="wrap">
@@ -267,6 +272,21 @@
         });
       }
     }
+    const btn = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('header nav');
+
+    btn.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', (e) => {
+      const header = document.querySelector('header');
+      const clickedInside = header.contains(e.target);
+      if (!clickedInside && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
   </script>
 </body>
 </html>
