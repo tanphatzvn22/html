@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi tiết đặc sản</title>
+<link rel="icon" type="image/png" href="../logo.png" sizes="32x32">
+          <link rel="stylesheet" href="../style.css" />
+  <style>
+    :root{
+      --text:#ffffff;
+      --muted: rgba(255,255,255,.85);
+      --border: rgba(255,255,255,.18);
+      --navbg: rgba(8, 16, 32, .65);
+      --btn: #6aa6ff;
+      --cardbg: rgba(18,26,43,.80);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background-image:url("../amthuc/anhmain1.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .overlay{ min-height:100vh; background: rgba(0,0,0,.35); }
+    .container{ width: min(980px, 92%); margin: 0 auto; }
+
+    .header{
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navbg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+    }
+    .logo{ display:flex; align-items:center; text-decoration:none; }
+    .logo img{
+      height:44px; width:44px;
+      object-fit:contain;
+      border-radius:50%;
+      background:white;
+      padding:4px;
+    }
+    .nav{ display:flex; align-items:center; gap: 16px; }
+    .nav a{
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 15px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .2s;
+    }
+    .nav a:hover{ background: rgba(255,255,255,.10); color:var(--text); }
+
+    .wrap{ padding: 28px 0 60px; }
+
+    .detail{
+      background: var(--cardbg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(0,0,0,.45);
+    }
+
+    .detail-body{ padding: 18px 18px 22px; }
+
+    .detail-title{
+      margin: 0 0 8px;
+      font-size: 32px;
+      text-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .detail-desc{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .detail-content{
+      margin: 0;
+      line-height: 1.8;
+      color: rgba(255,255,255,.92);
+      white-space: pre-line;
+    }
+
+    
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 14px 0 14px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);  
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .gallery img{
+      width:100%;
+
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display:block;
+    }
+
+    
+    .gallery img.is-last-odd{
+      grid-column: 1 / -1;
+      width:  100%;
+      justify-self: center;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top: 16px;
+      color: var(--btn);
+      font-weight: 700;
+      text-decoration:none;
+    }
+    .back:hover{ text-decoration: underline; }
+
+    @media (max-width: 700px){
+      .detail-title{ font-size: 24px; }
+      .gallery{ grid-template-columns: 1fr; }
+      .gallery img{ height: 220px; }
+      .gallery img.is-last-odd{ grid-column: auto; width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="../index.html"><img src="../logo.png" alt="Trang chủ"></a>
+        <nav class="nav">
+          <a href="../index.html">Trang chủ</a>
+          <a href="dulich.html#gioithieu">Giới thiệu</a>
+          <a href="dulich.html#lienhe">Liên hệ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="container">
+        <div class="detail">
+          <div class="detail-body">
+            <h1 id="title" class="detail-title">...</h1>
+            <p id="desc" class="detail-desc"></p>
+
+            
+            <p id="contentTop" class="detail-content"></p>
+
+            
+            <div id="gallery" class="gallery"></div>
+
+            
+            <p id="contentBottom" class="detail-content"></p>
+
+            <a class="back" href="dulich.html#gioithieu">← Quay về danh sách</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DATA = {
+      "that-phu-mieu": {
+        title: "Thất Phủ Miếu",
+        contentTop:
+`Miếu Thất Phủ làm theo kiểu “nội công ngoại quốc”. Phía sau là chính điện, phía trước là tiền đường, hai bên là Đông Sương và Tây Sương. Diện tích xây dựng khoảng 800 mét vuông, xung quanh được bao kín bởi những vách gạch kiên cố. Tuy các khu vực chính nằm xa nhau nhưng có thể thông hành qua lại nhờ các nhà nối, gọi là “hà cầu” là những cây cầu bắc qua ao sen. Miếu Thất Phủ xây dựng theo kiểu cung đình, có năm cửa cái. Trên các vách cửa cái đều có vẽ hình các vị thần giữ cửa. Mặt tiền, cửa vào là ba khuôn cửa lớn, hai bên vuông góc là hai khuôn cửa hẹp hơn. Hình ảnh trang trí đấp nổi bằng sành, sứ, các mảnh chén kiểu bên ngoài, nằm hai bên, phía ngoài cửa chính từ ngoài cổng nhìn vào đã thấy thẩm mỹ hài hòa và cân đối.`,
+        images: ["thatphumieu.jpg", "thatphumieu1.jpeg"],
+contentBottom:'Trong miếu có ba bàn thờ chính, bàn thờ giữa là khánh thờ Quan Thánh Đế Quân, Quan Bình Thái Tử, Châu Xương Tướng quân. Khánh thờ bên tả thờ Thiên Hậu Thánh Mẫu. Khánh thờ bên hữu thờ Phước Đức Chánh Thần. Trong vách không có tượng ngựa xích thố và Mã đầu Tướng quân của Quan Công.'
+      },
+
+      "cau-my-thuan": {
+        title: "Du lịch Cầu Mỹ Thuận Vĩnh Long",
+        contentTop:
+`Cầu Mỹ Thuận là cây cầu dây văng bắc qua sông Tiền, nối liền hai tỉnh Đồng Tháp và Vĩnh Long, Việt Nam. Cầu nằm cách Thành phố Hồ Chí Minh 125 km về hướng Tây Nam, trên Quốc lộ 1, là trục giao thông chính của vùng đồng bằng sông Cửu Long.
+
+Cầu Mỹ Thuận là cầu dây văng và cầu bắc qua sông Mê Kông đầu tiên ở Việt Nam.
+Cầu Mỹ Thuận nối liền giữa hai tỉnh Đồng Tháp và Vĩnh Long. Đầu cầu phía Bắc thuộc xã An Hữu, tỉnh Đồng Tháp; đầu cầu phía Nam thuộc phường Tân Ngãi, tỉnh Vĩnh Long. Vượt qua sông Tiền nối với tỉnh Đồng Tháp.`,
+        images: ["caumythuan.jpg","caumythuan1.jpg"],
+        contentBottom:'Nơi đây được xem là địa điểm phượt Vĩnh Long mà các phượt thủ thường dừng chân ở giữa cầu một lúc để chụp ảnh selfie. Từ đỉnh cầu, ta có thể ngắm nhìn toàn cảnh sông nước từ trên cao, các hàng dừa xanh mướt, đặc biệt buổi chiều ngắm hoàng hôn ở đây thì đẹp khỏi bàn cải.'
+      },
+
+      "cu-lao-an-binh": {
+        title: "Cù lao An Bình Vĩnh Long",
+        contentTop:
+`Cù lao An Bình hay còn gọi là cù lao Minh nằm giữa sông Tiền và sông Cổ Chiên thuộc huyện Long Hồ, tỉnh Vĩnh Long gồm 4 xã: An Bình, Bình Hòa Phước, Hòa Ninh và Đồng Phú nổi tiếng với vẻ đẹp tự nhiên tuyệt đẹp thu hút nhiều khách du lịch đến khám phá. Du khách có thể dễ dàng và thuận tiện đến tham quan cù lao An Bình, từ thành phố Vĩnh Long chỉ mất khoảng 30 phút di chuyển trên sông là đã đến được cù lao.`,
+        images: ["culaoanbinh.jpg","culaoanbinh1.jpg"],
+        contentBottom:'Du lịch cù lao An Bình là một trong những điểm đến thú vị được nhiều du khách yêu thích bởi không gian mát mẻ, khí hậu trong lành cùng nhiều điểm tham quan thú vị. Với danh sách những điểm du lịch nổi bật nêu trên, hy vọng sẽ giúp du khách phần nào có thêm thông tin vào cuốn sổ tay du lịch và lên kế hoạch vi vu đến Vĩnh Long check in!'
+      },
+      "lo-gach-mang-thit":{
+      title:"Lò gạch Mang Thít",
+      images:["logach.webp","logach1.jpg"],
+      contentTop:
+      'Làng gạch Mang Thít là một làng nghề nổi tiếng nằm trên địa bàn các xã Nhơn Phú, Mỹ Phước, An Phước, Mỹ An, Hòa Tịnh thuộc huyện Mang Thít, tỉnh Vĩnh Long, Việt Nam. Nơi đây được mệnh danh là "Vương quốc gạch ngói" hay "Vương quốc đỏ" bởi lịch sử lâu đời hàng trăm năm và quy mô sản xuất rộng lớn từng xuất khẩu sang nhiều nước trên thế giới, góp phần đáng kể cho nền kinh tế địa phương.[1]',
+      contentBottom:'Để thích nghi với thị trường và đáp ứng nhu cầu ngày càng cao của người tiêu dùng, làng nghề đã đầu tư đổi mới kỹ thuật sản xuất, áp dụng các công nghệ tiên tiến để nâng cao chất lượng sản phẩm và giảm thiểu tác động môi trường. Ngày nay, làng gạch Mang Thít vẫn đóng vai trò quan trọng trong nền kinh tế địa phương, tạo việc làm và thu nhập cho người dân. Ngoài ra, làng nghề cũng là điểm đến du lịch hấp dẫn, thu hút du khách bởi giá trị văn hóa độc đáo và khung cảnh làng quê mộc mạc, bình dị.'
+      },
+      "cho-noi-tra-on":{
+      title:"Chợ nổi Trà Ôn",
+      images:["chonoitraon.jpeg","chonoitraon1.jpeg"],
+      contentTop:
+      'Chợ nổi Trà Ôn tọa lạc cách Vàm Trà Ôn chỉ khoảng 250m. Khu chợ này họp theo con nước vậy nên cứ đúng thời điểm nước lên là chợ nổi Trà Ôn lại tập trung rất nhiều thuyền bè để buôn bán, giao thương cực kỳ tấp nập trên dòng sông Hậu dài hơn 300m. Có những lúc nước lớn vào buổi sáng sớm, chợ thu hút hàng trăm chiếc thuyền bè lớn nhỏ từ tỉnh Vĩnh Long cùng các tỉnh lân cận tới đây buôn bán và trao đổi hàng hóa. Cùng với Cù lao An Bình, chợ nổi Trà Ôn là một trong những tọa độ tham quan, du lịch hấp dẫn nhờ vẻ đẹp đặc trưng của nơi này.',
+      contentBottom:'Chợ nổi là một nét đẹp văn hóa truyền thống cực kỳ đặc sắc của riêng miền Tây sông nước. Các khu chợ nổi danh tiếng như chợ nổi Cái Bè, chợ nổi Cái Răng, chợ nổi Cà Mau, chợ nổi Ngã Bảy… đều là những điểm đến đang ngày càng thu hút đông đảo người dân trong nước cũng như quốc tế tìm đến tham quan mỗi ngày. Trong số đó thì chợ nổi Trà Ôn là một khu chợ lâu năm đã tồn tại hơn một thế kỷ và cho đến ngày nay, nơi đây vẫn còn giữ lại nhiều nét đẹp văn hóa giao thương độc đáo của bà con vùng Cửu Long.'
+      },
+      "nha-co-cai-cuong":{
+      title:"Nhà cổ cai Cường",
+      images:["nhacocaicuong.jpeg","nhacocaicuong1.jpeg"],
+      contentTop:
+      'Nhà Cổ Cai Cường là một trong những địa điểm tham quan cực hot tại vùng đất địa linh nhân kiệt Vĩnh Long bên cạnh Đình Long Thanh, Nhà gốm Tư Buôi, Làng nghề tàu hủ ky Mỹ Hòa... Nằm trên cù lao An Bình thuộc xã Bình Hòa Phước, kề bên là bờ rạch Cái Muối không khi nào ngớt thuyền ghe, ngôi nhà được đánh giá là một trong những công trình vô cùng độc đáo và ấn tượng. Sự kết hợp hài hòa giữa phong cách kiến trúc Đông - Tây đã mang đến nơi đây một vẻ đẹp vừa hiện đại lại rất uy nghi, cổ kính. Trải qua nhiều lần trùng tu, đến nay Nhà cổ Cai Cường vẫn giữ nguyên vẹn được lối sắp xếp và bài trí bên trong đồng thời thể hiện được giá trị thẩm mỹ bền vững của mình qua năm tháng.',
+      contentBottom:'Những hình tượng chạm khắc trên các bao lam và vách gỗ cũng góp phần mang đến ngôi nhà vẻ đẹp đầy tính nghệ thuật. Đội ngũ nghệ nhân đã khéo léo trang trí lên đây những con vật rất quen thuộc với mảnh đất phương Nam buổi đầu như khỉ, chim, ngựa, nai, hổ... cùng lúc đó biến tấu chúng không theo chuẩn mực kinh điển nào nhằm tạo nên điểm nhấn độc đáo vô cùng. Nhà Cổ Cai Cường cùng nhà thuyền của ông Cao Văn Nam là những công trình mà bạn yêu khám phá nét đẹp kiến trúc độc đáo nhất định phải ghé thăm.'
+      }
+    };
+
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    const item = DATA[id];
+
+    if (!item) {
+      location.href = "dulich.html#gioithieu";
+    } else {
+      document.title = item.title + " - Đặc sản Vĩnh Long";
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("desc").textContent = item.desc;
+
+      document.getElementById("contentTop").textContent = item.contentTop || "";
+      document.getElementById("contentBottom").textContent = item.contentBottom || "";
+
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = "";
+
+      const imgs = item.images || [];
+      if (imgs.length === 0) {
+        gallery.style.display = "none";
+      } else {
+        gallery.style.display = "grid";
+
+        imgs.forEach((src, i) => {
+          const im = document.createElement("img");
+          im.src = src;
+          im.alt = `${item.title} (${i + 1})`;
+
+          if (imgs.length % 2 === 1 && i === imgs.length - 1) {
+            im.classList.add("is-last-odd");
+          }
+
+          gallery.appendChild(im);
+        });
+      }
+    }
+  </script>
+</body>
+</html>

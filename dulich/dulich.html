@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Du lịch Vĩnh Long</title>
+<link rel="icon" type="image/png" href="../logo.png" sizes="32x32">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    .typing-text{
+      font-size: 3.1rem;
+      font-weight: 700;
+      min-width: 280px;
+    }
+
+    .typing-text span{ position: relative; }
+
+    .typing-text span::before{
+      content: "ngay hôm nay";
+      color: var(--accent2);
+      animation: words 16s infinite;
+    }
+
+
+    @keyframes cursor{
+      to{ border-left: 3px solid var(--accent2); }
+    }
+
+    @keyframes words{
+      0%, 24%  { content: "du lịch đa dạng"; }
+      25%, 49% { content: "trải nghiệm đặc sắc"; }
+      50%, 74% { content: "điểm check-in xịn"; }
+      75%, 100%{ content: "sông nước Vĩnh Long"; }
+    }
+
+    
+    .hot-video-row{
+      display: grid;
+      grid-template-columns: 0.9fr 1.6fr; 
+      gap: 24px;
+      align-items: start;
+    }
+
+    .hot-video-row > *{ min-width: 0; }
+
+    
+    #hot .slider{ max-width: 520px; } 
+
+    
+    .video-wrap{
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    
+    @media (min-width: 901px){
+      .video-wrap{
+        position: sticky;
+        top: 90px; 
+      }
+    }
+
+    
+    @media (max-width: 900px){
+      .hot-video-row{ grid-template-columns: 1fr; }
+      #video{ order: 1; }
+      #hot{ order: 2; }
+      #hot .slider{ max-width: 100%; }
+      .video-wrap{ position: static; }
+    }
+      
+.hot-video-row{
+  display: grid;
+  grid-template-columns: 0.9fr 1.6fr 0.65fr;
+  gap: 24px;
+  align-items: start;
+}
+.hot-video-row > *{ min-width: 0; }
+
+#ad{
+  width: 100%;
+}
+.ad-wrap{
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 14px;
+}
+
+.ad-title{
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.ad-item{
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 14px;
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease;
+}
+.ad-item:hover{ transform: translateY(-2px); }
+
+.ad-item img{
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.ad-item h4{
+  margin: 0 0 6px;
+  font-size: 1rem;
+}
+.ad-item p{
+  margin: 0;
+  font-size: .9rem;
+  opacity: .85;
+}
+
+@media (min-width: 901px){
+  .ad-wrap{
+    position: sticky;
+    top: 90px;
+  }
+}
+
+@media (max-width: 900px){
+  .hot-video-row{ grid-template-columns: 1fr; }
+  #video{ order: 1; }
+  #hot{ order: 2; }
+  #ad{ order: 3; }
+  .ad-wrap{ position: static; }
+}
+
+  </style>
+</head>
+
+<body style="--bg-image: url('amthuc/anhmain1.jpg');">
+  <div class="page-overlay">
+
+    <header>
+      <a class="logo" href="../index.html">
+        <img src="../amthuc/logo.png" alt="Du lịch Vĩnh Long">
+        Vĩnh Long
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Mở menu">☰</button>
+
+      <nav id="navMenu">
+        <a href="../index.html">Trang chủ</a>
+        <a href="#dulich" class="active">Du lịch</a>
+        <a href="../amthuc/amthuc.html">Đặc sản</a>
+          <a href="../vanhoa/vanhoa.html">Văn hoá</a>
+        <a href="#video">HOT/Video</a>
+        <a class="btn" href="#lienhe">Liên hệ</a>
+      </nav>
+    </header>
+
+    
+    <section class="home" id="gioithieu">
+      <div class="home-img">
+        <img src="thatphumieu.jpg" alt="Du lịch Vĩnh Long">
+      </div>
+
+      <div class="home-content">
+        <h1>Chào mừng đến <span>Vĩnh Long</span></h1>
+        <h3 class="typing-text">Khám phá <span></span></h3>
+        <p>
+          Một vài địa điểm du lịch Vĩnh Long bạn có thể tìm hiểu thêm. Bên dưới có danh sách HOT và video giới thiệu.
+          Bấm “Xem thêm” để đọc chi tiết.
+        </p>
+
+        <a class="btn" href="#dulich"><i class="fa-solid fa-list"></i> Xem danh sách</a>
+        <a class="btn secondary" href="#hot" style="margin-left:10px;"><i class="fa-solid fa-fire"></i> Xem HOT/Video</a>
+      </div>
+    </section>
+
+    
+    <section class="section hot-video-row">
+
+      
+      <div id="hot">
+        <h2 class="title">HOT</h2>
+        <p class="muted">Một vài địa điểm nổi bật ở Vĩnh Long mà bạn có thể biết.</p>
+
+        <div class="slider" style="position:relative;">
+          <button class="slider-btn left" type="button" aria-label="Trượt trái"></button>
+
+          <div class="slider-track" style="
+            display:grid;
+            grid-auto-flow:column;
+            grid-auto-columns:100%;
+            gap:0;
+            overflow:hidden;
+            padding:0;
+            scroll-snap-type:x mandatory;
+          ">
+
+            <article class="card" style="scroll-snap-align:start;">
+              <img src="thatphumieu.jpg" alt="Thất Phủ Miếu">
+              <div class="card-body">
+                <h3>Thất Phủ Miếu</h3>
+                <p>Điểm tham quan mang nét văn hoá tín ngưỡng đặc sắc.</p>
+                <a class="card-link" href="chitiet.html?id=that-phu-mieu">Xem thêm →</a>
+              </div>
+            </article>
+
+            <article class="card" style="scroll-snap-align:start;">
+              <img src="caumythuan.jpg" alt="Cầu Mỹ Thuận Vĩnh Long">
+              <div class="card-body">
+                <h3>Cầu Mỹ Thuận</h3>
+                <p>Biểu tượng nối liền đôi bờ, view đẹp chụp ảnh.</p>
+                <a class="card-link" href="chitiet.html?id=cau-my-thuan">Xem thêm →</a>
+              </div>
+            </article>
+
+            <article class="card" style="scroll-snap-align:start;">
+              <img src="culaoanbinh.jpg" alt="Cù lao An Bình Vĩnh Long">
+              <div class="card-body">
+                <h3>Cù lao An Bình</h3>
+                <p>Trải nghiệm miệt vườn, sông nước, homestay.</p>
+                <a class="card-link" href="chitiet.html?id=cu-lao-an-binh">Xem thêm →</a>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="slider-dots" aria-label="Chuyển slide"></div>
+          <button class="slider-btn right" type="button" aria-label="Trượt phải"></button>
+        </div>
+      </div>
+
+      
+      <div id="video">
+        <h2 class="title">Video</h2>
+        <p class="muted">Video giới thiệu du lịch Vĩnh Long.</p>
+
+        <div class="video-wrap">
+<div style="position:relative; width:100%; height:0px; padding-bottom:56.250%"><iframe allow="fullscreen" allowfullscreen height="100%" src="https://streamable.com/e/lataiv?" width="100%" style="border:none; width:100%; height:100%; position:absolute; left:0px; top:0px; overflow:hidden;"></iframe></div>
+        </div>
+      </div>
+<div id="ad">
+  <h2 class="title">Quảng cáo</h2>
+  <p class="muted">Ưu đãi & gợi ý cho bạn.</p>
+
+  <div class="ad-wrap">
+    <div class="ad-title">Ưu đãi hôm nay</div>
+
+    <a class="ad-item" target="blank" href="https://chieutour.com.vn/chuong-trinh-tour/chum-tour-mien-tay-gia-re/tour-du-lich-mien-tay-vinh-long-1-ngay.html">
+      <img src="../qc1.webp" alt="Combo du lịch">
+      <div>
+        <h4>
+TOUR DU LỊCH MIỀN TÂY VĨNH LONG 1 NGÀY</h4>
+        <p>Xem tour & bản đồ chi tiết →</p>
+      </div>
+    </a>
+
+    <div style="height:10px"></div>
+
+    <a class="ad-item" target="blank" href="https://vuatraicaysi.com/vua-trai-cay-vinh-long.html">
+      <img src="../qc2.png" alt="Đặt đặc sản">
+      <div>
+        <h4>Đặt đặc sản giao tận nơi</h4>
+        <p>Liên hệ đặt hàng nhanh →</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+    </section>
+
+    
+    <section class="section" id="dulich">
+      <h2 class="title">Du lịch nổi bật</h2>
+      <p class="muted">Một vài địa điểm du lịch Vĩnh Long bạn có thể tìm hiểu thêm.</p>
+
+      <div class="grid">
+        <article class="card">
+          <img src="thatphumieu.jpg" alt="Thất Phủ Miếu">
+
+          <div class="card-body">
+            <h3>Thất Phủ Miếu</h3>
+              <a class="detail-content1" target="blank" href="https://thamhiemmekong.com/thong-tin-du-lich-mien-tay/chua-ong-that-phu-mieu-diem-den-van-hoa-lich-su-doc-dao-o-vinh-long.html">Nguồn</a>
+            <p>Công trình tín ngưỡng Hoa – Việt đặc sắc, mang giá trị lịch sử và văn hóa lâu đời.</p>
+
+            <a class="card-link" href="chitiet.html?id=that-phu-mieu">Xem thêm →</a>
+
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="caumythuan.jpg" alt="Cầu Mỹ Thuận Vĩnh Long">
+          <div class="card-body">
+            <h3>Cầu Mỹ Thuận</h3>
+              <a class="detail-content1" target="blank" href="https://vi.wikipedia.org/wiki/C%E1%BA%A7u_M%E1%BB%B9_Thu%E1%BA%ADn">Nguồn</a>
+            <p>Biểu tượng giao thông nổi tiếng, điểm ngắm cảnh sông Tiền và hoàng hôn tuyệt đẹp.</p>
+            <a class="card-link" href="chitiet.html?id=cau-my-thuan">Xem thêm →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="culaoanbinh.jpg" alt="Cù lao An Bình Vĩnh Long">
+          <div class="card-body">
+            <h3>Cù lao An Bình</h3>
+              <a class="detail-content1" target="blank" href="https://vinhlongtourist.vn/en/detailnews/?t=kham-pha-cu-lao-an-binh-diem-du-lich-song-nuoc-dam-chat-tay-nam-bo-tai-vinh-long&id=news_12094">Nguồn</a>
+            <p>Miệt vườn xanh mát, trải nghiệm sông nước, ẩm thực và homestay miền Tây.</p>
+            <a class="card-link" href="chitiet.html?id=cu-lao-an-binh">Xem thêm →</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="logach.webp" alt="Lò gạch Mang Thít">
+          <div class="card-body">
+            <h3>Lò gạch Mang Thít</h3>
+              <a class="detail-content1" target="blank" href="https://vi.wikipedia.org/wiki/L%C3%A0ng_g%E1%BA%A1ch_Mang_Th%C3%ADt">Nguồn</a>
+            <p>Làng nghề là điểm đến du lịch hấp dẫn, thu hút du khách bởi giá trị văn hóa độc đáo và khung cảnh làng quê mộc mạc, bình dị</p>
+            <a class="card-link" href="chitiet.html?id=lo-gach-mang-thit">Xem thêm →</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="chonoitraon.jpeg" alt="Chợ nổi Trà Ôn">
+          <div class="card-body">
+            <h3>Chợ nổi Trà Ôn</h3>
+              <a class="detail-content1" target="blank" href="https://mia.vn/cam-nang-du-lich/cho-noi-tra-on-net-van-hoa-giao-thuong-dac-sac-mien-cuu-long-9610">Nguồn</a>
+            <p>Chợ nổi là một nét đẹp văn hóa truyền thống cực kỳ đặc sắc của riêng miền Tây sông nước.</p>
+            <a class="card-link" href="chitiet.html?id=cho-noi-tra-on">Xem thêm →</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="nhacocaicuong.jpeg" alt="Nhà cổ cai Cường">
+          <div class="card-body">
+            <h3>Nhà cổ cai Cường</h3>
+              <a class="detail-content1" target="blank" href="https://mia.vn/cam-nang-du-lich/nha-co-cai-cuong-voi-loi-kien-truc-dep-nhat-cu-lao-an-binh-9730">Nguồn</a>
+            <p> Đây là một trong những công trình đẹp mê hồn người tại Vĩnh Long thu hút đông đảo các bạn gần xa đến tham quan, khám phá.</p>
+            <a class="card-link" href="chitiet.html?id=nha-co-cai-cuong">Xem thêm →</a>
+          </div>
+        </article>
+
+
+      </div>
+    </section>
+
+    <section class="section" id="lienhe">
+      <h2 class="title">Liên hệ</h2>
+      <p class="muted">Thông tin liên hệ.</p>
+
+      <div class="detail">
+        <div class="detail-body">
+          <p class="detail-content">
+Tan Phát 12.1 – Trường THCS-THPT Thanh Bình
+SĐT: 0788842156
+Email: tanphatvo657@gmail.com
+
+Huỳnh Long 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0944024022
+Email: huynhlongvlm1902@gmail.com
+
+Nhật Hào 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0939665263
+Email: huynhnhathao@gmail.com
+
+Trí Đức 12.1 – Trường THCS-THPT Thanh Bình
+SĐT : 0789567504
+Email: letriduc150408@gmail.com
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      
+      (function(){
+        const btn = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+        if(!btn || !menu) return;
+
+        btn.addEventListener('click', ()=>{
+          menu.classList.toggle('open');
+          btn.textContent = menu.classList.contains('open') ? '✕' : '☰';
+        });
+
+        menu.querySelectorAll('a').forEach(a=>{
+          a.addEventListener('click', ()=>{
+            if(menu.classList.contains('open')){
+              menu.classList.remove('open');
+              btn.textContent = '☰';
+            }
+          });
+        });
+
+        document.addEventListener('click', (e)=>{
+          if(window.matchMedia('(max-width: 900px)').matches){
+            const isInside = menu.contains(e.target) || btn.contains(e.target);
+            if(!isInside && menu.classList.contains('open')){
+              menu.classList.remove('open');
+              btn.textContent = '☰';
+            }
+          }
+        });
+      })();
+
+      
+      document.querySelectorAll('.slider').forEach(slider=>{
+        const track = slider.querySelector('.slider-track');
+        const left  = slider.querySelector('.slider-btn.left');
+        const right = slider.querySelector('.slider-btn.right');
+        const dotsWrap = slider.querySelector('.slider-dots');
+        if(!track || !left || !right || !dotsWrap) return;
+
+        const cards = Array.from(track.querySelectorAll('.card'));
+        if(cards.length === 0) return;
+
+        const gap = (() => {
+          const cs = getComputedStyle(track);
+          const g = cs.gap || cs.columnGap || "16px";
+          const n = parseFloat(g);
+          return Number.isFinite(n) ? n : 16;
+        })();
+
+        const step = () => {
+          const card = cards[0];
+          const w = card ? card.getBoundingClientRect().width : 280;
+          return w + gap;
+        };
+
+        const getIndex = () => {
+          const s = step();
+          if(s <= 0) return 0;
+          return Math.round(track.scrollLeft / s);
+        };
+
+        function setActiveDot(i){
+          dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+        }
+
+        function goTo(i, smooth = true){
+          const idx = (i + cards.length) % cards.length;
+          track.scrollTo({ left: idx * step(), behavior: smooth ? 'smooth' : 'auto' });
+          setActiveDot(idx);
+        }
+
+        dotsWrap.innerHTML = "";
+        const dots = cards.map((_, i) => {
+          const b = document.createElement('button');
+          b.type = "button";
+          b.setAttribute('aria-label', `Slide ${i+1}`);
+          b.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(b);
+          return b;
+        });
+
+        setActiveDot(getIndex());
+
+        left.addEventListener('click', () => goTo(getIndex() - 1));
+        right.addEventListener('click', () => goTo(getIndex() + 1));
+
+        let raf = 0;
+        track.addEventListener('scroll', ()=>{
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(()=>{
+            const idx = Math.min(cards.length - 1, Math.max(0, getIndex()));
+            setActiveDot(idx);
+          });
+        });
+
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(reduceMotion) return;
+
+        let timer = null;
+        const INTERVAL = 3000;
+
+        function stop(){
+          if(timer){ clearInterval(timer); timer = null; }
+        }
+
+        function start(){
+          stop();
+          timer = setInterval(()=>{
+            const next = getIndex() + 1;
+            if(next >= cards.length) goTo(0);
+            else goTo(next);
+          }, INTERVAL);
+        }
+
+        slider.addEventListener('mouseenter', stop);
+        slider.addEventListener('mouseleave', start);
+        slider.addEventListener('touchstart', stop, {passive:true});
+        slider.addEventListener('touchend', start);
+        slider.addEventListener('pointerdown', stop);
+        slider.addEventListener('pointerup', start);
+        slider.addEventListener('pointercancel', start);
+
+        window.addEventListener('resize', ()=> setActiveDot(getIndex()));
+
+        start();
+      });
+
+      
+      function renderViews(){
+        document.querySelectorAll('.view-badge').forEach(b=>{
+          const id = b.dataset.viewId;
+          const count = Number(localStorage.getItem('views_' + id) || 0);
+          b.textContent = '👁 ' + count;
+        });
+      }
+      renderViews();
+
+      document.querySelectorAll('a.go-detail').forEach(a=>{
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          const id = this.dataset.id;
+          if(id){
+            const key = 'views_' + id;
+            const current = Number(localStorage.getItem(key) || 0);
+            localStorage.setItem(key, String(current + 1));
+            renderViews();
+          }
+          window.location.href = this.href;
+        });
+      });
+    </script>
+
+  </div>
+</body>
+</html>
