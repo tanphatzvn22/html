@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi tiết đặc sản</title>
+<link rel="icon" type="image/png" href="../logo.png" sizes="32x32">
+      <link rel="stylesheet" href="../style.css" />
+  <style>
+    :root{
+      --text:#ffffff;
+      --muted: rgba(255,255,255,.85);
+      --border: rgba(255,255,255,.18);
+      --navbg: rgba(8, 16, 32, .65);
+      --btn: #6aa6ff;
+      --cardbg: rgba(18,26,43,.80);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background-image:url("../amthuc/anhmain1.jpg");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+
+    .overlay{ min-height:100vh; background: rgba(0,0,0,.35); }
+    .container{ width: min(980px, 92%); margin: 0 auto; }
+
+    .header{
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navbg);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+    }
+    .logo{ display:flex; align-items:center; text-decoration:none; }
+    .logo img{
+      height:44px; width:44px;
+      object-fit:contain;
+      border-radius:50%;
+      background:white;
+      padding:4px;
+    }
+    .nav{ display:flex; align-items:center; gap: 16px; }
+    .nav a{
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 15px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .2s;
+    }
+    .nav a:hover{ background: rgba(255,255,255,.10); color:var(--text); }
+
+    .wrap{ padding: 28px 0 60px; }
+
+    .detail{
+      background: var(--cardbg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(0,0,0,.45);
+    }
+
+    .detail-body{ padding: 18px 18px 22px; }
+
+    .detail-title{
+      margin: 0 0 8px;
+      font-size: 32px;
+      text-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .detail-desc{
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .detail-content{
+      margin: 0;
+      line-height: 1.8;
+      color: rgba(255,255,255,.92);
+      white-space: pre-line;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 14px 0 14px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+    }
+
+    .gallery img{
+      width:100%;
+
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display:block;
+    }
+
+    .gallery img.is-last-odd{
+      grid-column: 1 / -1;
+      width:  100%;
+      justify-self: center;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top: 16px;
+      color: var(--btn);
+      font-weight: 700;
+      text-decoration:none;
+    }
+    .back:hover{ text-decoration: underline; }
+
+    @media (max-width: 700px){
+      .detail-title{ font-size: 24px; }
+      .gallery{ grid-template-columns: 1fr; }
+      .gallery img{ height: 220px; }
+      .gallery img.is-last-odd{ grid-column: auto; width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="../index.html"><img src="../logo.png" alt="Đặc sản Vĩnh Long"></a>
+        <nav class="nav">
+          <a href="../index.html">Trang chủ</a>
+          <a href="vanhoa.html#gioithieu">Giới thiệu</a>
+          <a href="vanhoa.html#lienhe">Liên hệ</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <div class="container">
+        <div class="detail">
+          <div class="detail-body">
+            <h1 id="title" class="detail-title">...</h1>
+            <p id="desc" class="detail-desc"></p>
+
+            <p id="contentTop" class="detail-content"></p>
+
+            <div id="gallery" class="gallery"></div>
+
+            <p id="contentBottom" class="detail-content"></p>
+
+            <a class="back" href="vanhoa.html#gioithieu">← Quay về danh sách</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const DATA = {
+      "lang-ong": {
+        title: "Lễ hội Lăng Ông Trà Ôn",
+        contentTop:
+`Địa điểm: Ấp Mỹ Hòa, Thiện Mỹ, Vĩnh Long.
+
+Lăng Ông Trà Ôn là nơi chôn cất và thờ phụng. Lễ hội Lăng Ông Trà Ôn diễn ra để tri ân công đức của Thống chế Điều bát Nguyễn Văn Tồn. Lăng mộ này cách thị trấn Trà Ôn khoảng 2km nên cũng tiện cho bạn di chuyển. Lễ hội Vĩnh Long này chính là niềm tự hào của người dân Vĩnh Long vì vào năm 1996, nó đã được Bộ Văn hóa - Thông tin công nhận là Di tích văn hóa.`,
+        images: ["langong.jpg", "langong.gif"],
+contentBottom:'Ông Nguyễn Văn Tồn đã có công giúp nhà Nguyễn dẹp loạn ngoại xâm, nội phản và giúp người dân nơi đây khai hoang, thành lập xóm làng. Với những chiến công hiển hách cùng đời sống gắn bó với dân làng như vậy nên ông được nhiều người kính trọng. Khi ông mất, người dân đã lấy ngày giỗ làm Lễ hội Lăng Ông Trà Ôn. Đầu tháng Giêng hằng năm chính là thời điểm diễn ra buổi lễ nên cùng lúc đó đã thu hút không ít bạn bè gần xa đến tham dự. Ngoài dâng lên Ông nén hương tưởng nhớ, bạn còn được chiêm ngưỡng phong cảnh tuyệt mỹ xung quanh. Để buổi lễ được trọn vẹn thì bạn nên tham gia các hoạt động văn hóa nghệ thuật dân gian hấp dẫn diễn ra tại đó.',
+      },
+
+      "le-cung-mieu": {
+        title: "Lễ cúng Miễu",
+        contentTop:
+`Lễ cúng Miễu Vĩnh Long mang ý nghĩa thể hiện sự tri ân đối với thế hệ đi trước và còn là nét đẹp trong đời sống tâm linh, tín ngưỡng. Đây cũng là dịp để người dân cũng như các tín đồ tôn giáo gần xa đến đây cùng chung vui, giải trí và thắt chặt tính cộng đồng. Lễ cúng Miễu được chia thành 3 loại: Lễ cúng miễu Ông, Lễ cúng miếu Bà và Lễ cúng miếu Cô Hồn. Lễ cúng miễu Ông được tổ chức khá cầu kỳ và trang trọng với các nghi thức tế lễ đoan trang như: Thỉnh tro, Lễ Tiền Vãng, cúng Tiền Yết, lễ Chánh Cúng... Lễ cúng miếu Bà thì được thực hiện tại nhiều địa điểm khác nhau như miếu thờ Ngũ Hành Nương Nương, Thất Thánh Nương Nương, Thiên Hậu Thánh Mẫu,… `,
+        images: ["lecungmieu.jpg","lecungmieu1.jpg"],
+        contentBottom:
+        'Khi diễn ra bất kỳ nghi lễ nào cũng đều có dàn nhạc đi kèm và một số phần đặc biệt còn có múa bóng rỗi. Lễ cúng cô hồn sẽ diễn ra vào ngày 15 -16/1 tháng 1, 10 và 7 âm lịch hằng năm. Vào thời gian đó, các sư cùng người dân tụng kinh và cầu siêu cho các vong hồn lưu lạc. Nét độc đáo mà bạn không thể bỏ qua khi tham gia lễ hội Vĩnh Long này chính là chương trình nghệ thuật. Nhờ vào hình thức diễn xướng nên đã thu hút người dân địa phương và bạn bè gần xa trên khắp mọi nơi đến tham dự tạo nên bầu không khí sôi nổi.'
+      },
+
+      "ky-yen": {
+        title: "Lễ Hội Kỳ Yên",
+        contentTop:
+`Văn hóa của người dân Nam Bộ thường gắn liền với những ngôi đình làng, chùa, miếu. Trong nhà của họ, trên mỗi bàn thờ đều có các vị Tiền hiền và Hậu hiền là những người đã có công khai hoang lập làng, đóng góp công sức để xây dựng nơi đây. Cũng chính vì thế mà lễ hội Vĩnh Long này cũng được xem là ngày giỗ của làng.`,
+        images: ["kyyen.jpg","kyyen1.jpg"],
+        contentBottom:
+        'Phần hội được diễn ra với rất nhiều hoạt động sôi nổi như hát xướng, hát bội,... Đây là dịp để người dân làng tụ họp lại với nhau bàn chuyện gia đình, làng xã rất rôm rả. Không những vậy, tại lễ hội kỳ yên ở Vĩnh Long còn diễn ra những cuộc thi chưng hoa dành cho những người nghệ nhân, hay là dịp để người dân giới thiệu những món ăn đặc sản của mình đến người từ những nơi khác đến. ' +'\n'+'\n'+
+                'Lễ hội Kỳ Yên ở Vĩnh Long có ý nghĩa vô cùng to lớn đối với người dân nơi đây. Hãy lưu ngay vào cẩm nang du lịch của mình lễ hội này để có dịp đến du lịch Vĩnh Long vào đúng lúc đang diễn ra thì hãy đến trải nghiệm nhé! Có rất nhiều những hoạt động thú vị đang chờ đón bạn đó.'
+      },
+      "don-ca-tai-tu":{
+      title:"Đờn Ca Tài Tử",
+      images:["doncataitu.jpg","doncataitu1.jpg"],
+      contentTop:
+      'Trong số các trải nghiệm ở Vĩnh Long mà nhiều bạn trẻ đã chia sẻ, tự tay bắt và thưởng thức món cá lóc nướng trui là điều tuyệt vời nhất. Chỉ khi bắt cá lóc sinh sống tự nhiên ở đồng ruộng, kênh rạch thì thịt mới thật sự chắc khỏe. Như vậy, chỉ khi cá lóc được nướng mới thật sự đúng chuẩn hương vị. Khi nướng, các bạn chỉ cần dùng thanh tre xiên qua thân cá lóc theo chiều dọc rồi để lên than nóng để nướng. Tương tự như cá tai tượng, các bạn nên ăn cá lóc nướng trui khi cuộn với rau, bún, nước chấm. Hương vị ngọt, chắc của thịt cá cộng với mùi khét thoang thoảng khí nướng ban đầu chắc chắn sẽ khiến bạn mê mẩn món ăn này.',
+        contentBottom:'Đờn ca tài tử ra đời cách nay trên một trăm năm, xứng đáng được xếp vào danh mục “Nhạc cổ truyền người Việt”. Bởi, nó đã kế thừa phát triển đến đỉnh cao những nguyên tắc hòa đờn cổ truyền, đỉnh cao lối cấu trúc bài bản theo nguyên tắc cổ truyền và cả đỉnh cao về nhu cầu sinh hoạt văn hóa đời thường - văn hóa giải trí, một mảng còn thiếu vắng trong hồ sơ âm nhạc cổ truyền người Việt.\n' +
+                '\n' +
+                'Bằng các giá trị văn hóa và nghệ thuật cổ truyền đỉnh cao, bằng lối sinh hoạt giản dị và lôi cuốn, bằng sức sống mãnh liệt của Đờn ca tài tử trong đời sống hiện đại, mà Đờn ca tài tử đã được thế giới công nhận và vinh danh vào danh sách Di sản văn hóa phi vật thể đại diện của nhân loại. Đó là niềm tự hào về sự đóng góp một sáng tạo kiệt tác âm nhạc cổ truyền của Việt Nam vào kho tàng những kiệt tác văn hóa phi vật thể nhân loại'
+    },
+      "hung-vuong":{
+      title:"Tín ngưỡng thờ cúng Hùng Vương",
+      images:["hungvuong.jpg","doncataitu1.jpg"],
+      contentTop:
+      'Tín ngưỡng thờ cúng Hùng Vương là một loại hình tín ngưỡng dân gian được lưu truyền lâu đời ở Việt Nam, chủ yếu được thực hiện ở các di tích thờ các nhân vật liên quan đến thời Hùng Vương tiêu biểu như Thần Nông, Vua Hùng, Lạc Long Quân, Âu Cơ, Sơn Tinh, Cao Sơn, Quý Minh. Loại tín ngưỡng này đã được Bộ Văn hóa, Thể thao và Du lịch Việt Nam ghi danh vào Danh mục di sản văn hóa phi vật thể quốc gia (đợt 1) và UNESCO công nhận là di sản văn hóa phi vật thể đại diện của nhân loại.[1]',
+        contentBottom:'Ngày 6 tháng 12 năm 2012, tại kỳ họp lần thứ 7 Ủy ban liên chính phủ về bảo vệ di sản văn hóa phi vật thể đang diễn ra ở Paris (Pháp), Tổ chức Giáo dục, Khoa học và Văn hóa của Liên hợp quốc (UNESCO) đã chính thức thông qua quyết định ghi danh Tín ngưỡng thờ cúng Hùng Vương ở Việt Nam là Di sản văn hóa phi vật thể đại diện của nhân loại.[2] Tín ngưỡng thờ cúng Hùng Vương không phải một tôn giáo mà chính là biểu trưng của lòng thành kính, sự biết ơn- tri ân công đức các Vua Hùng là những người có công dựng nước Văn Lang. Hiện tại theo kiểm kê của Sở VH,TT&DL Phú Thọ, trên địa bàn tỉnh có 326 di tích thờ Hùng Vương và các nhân vật liên quan đến thời đại Hùng Vương trải rộng khắp các địa phương trên địa bàn toàn tỉnh. Tín ngưỡng thờ cúng Hùng Vương được phủ rộng với mật độ dày đặc ở tất cả các làng xã, song Đền Hùng là trung tâm thực hành Tín ngưỡng thờ cúng Hùng Vương lớn nhất và lâu đời nhất trong tiến trình phát triển lịch sử của dân tộc Việt Nam.[3]'
+    },
+      "ok-ombok":{
+      title:"Lễ Ok Ombok",
+      images:["okom.jpeg","okom1.jpg"],
+      contentTop:
+      'Nghi lễ Ok Om Bok được tổ chức vào thời điểm mà người Khmer cho rằng: Bầu trời trong sáng, khí hậu mát mẻ, mặt trăng xuống thấp gần mặt đất nhất và tỏa ánh sáng đẹp nhất trong năm… Vào thời gian này, đồng bào Khmer đều cảm thấy sảng khoái hòa mình với thiên nhiên, cũng là lúc cả cộng đồng hào hứng chuẩn bị thu hoạch mùa màng. Cùng thời điểm này, Sóc Trăng đang tưng bừng tổ chức Ngày hội văn hóa Khmer Nam Bộ, cùng với cuộc đua ghe ngo khu vực ĐBSCL vào các ngày 7- 8/11.',
+        contentBottom:'Theo thời gian, hòa vào dòng chảy lịch sử - văn hóa, lễ Ok Om Bok đã có thêm những sắc thái mới, không chỉ mang dấu ấn từ sự ảnh hưởng tác động của tôn giáo ngoại lai, mà còn chịu sự chi phối bởi môi trường sinh thái - nhân văn tại chỗ, ở mỗi vùng, miền, nơi cộng đồng Khmer cư ngụ. Để rồi, có một hiện tượng phổ biến là: trong lễ Ok Om Bok có sự góp mặt của những nghi lễ khác và quy tụ nhiều loại hình sinh hoạt thuộc phạm trù văn hóa - thể thao; đặc biệt, đua ghe ngo như hoạt động chính thu hút đông đảo đồng bào náo nức tham gia. Và như thế, từ một lễ nghi nông nghiệp đơn sơ để tỏ lòng thành kính, Ok Om Bok phát triển thành một lễ hội dân gian đa sắc màu văn hóa.'
+    }
+
+    };
+
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    const item = DATA[id];
+
+    if (!item) {
+      location.href = "vanhoa.html#gioithieu";
+    } else {
+      document.title = item.title + " - Đặc sản Vĩnh Long";
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("desc").textContent = item.desc;
+
+      document.getElementById("contentTop").textContent = item.contentTop || "";
+      document.getElementById("contentBottom").textContent = item.contentBottom || "";
+
+      const gallery = document.getElementById("gallery");
+      gallery.innerHTML = "";
+
+      const imgs = item.images || [];
+      if (imgs.length === 0) {
+        gallery.style.display = "none";
+      } else {
+        gallery.style.display = "grid";
+
+        imgs.forEach((src, i) => {
+          const im = document.createElement("img");
+          im.src = src;
+          im.alt = `${item.title} (${i + 1})`;
+
+          if (imgs.length % 2 === 1 && i === imgs.length - 1) {
+            im.classList.add("is-last-odd");
+          }
+
+          gallery.appendChild(im);
+        });
+      }
+    }
+  </script>
+</body>
+</html>
